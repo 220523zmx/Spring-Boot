@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.datangedu.cn.dao.mapper.BusinessOrderMapper">
+  <resultMap id="BaseResultMap" type="com.datangedu.cn.model.Business_order.BusinessOrder">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="BUSINESS_NO" jdbcType="VARCHAR" property="businessNo" />
+    <result column="ORDER_INFO" jdbcType="VARCHAR" property="orderInfo" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+    <result column="TOTAL_PRICE" jdbcType="INTEGER" property="totalPrice" />
+    <result column="PAY_TYPE" jdbcType="INTEGER" property="payType" />
+    <result column="CREATE_TIME" jdbcType="DATE" property="createTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, BUSINESS_NO, ORDER_INFO, STATUS, TOTAL_PRICE, PAY_TYPE, CREATE_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.datangedu.cn.model.Business_order.BusinessOrderExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from business_order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from business_order
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from business_order
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.datangedu.cn.model.Business_order.BusinessOrderExample">
+    delete from business_order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.datangedu.cn.model.Business_order.BusinessOrder">
+    insert into business_order (ID, BUSINESS_NO, ORDER_INFO, 
+      STATUS, TOTAL_PRICE, PAY_TYPE, 
+      CREATE_TIME)
+    values (#{id,jdbcType=VARCHAR}, #{businessNo,jdbcType=VARCHAR}, #{orderInfo,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{totalPrice,jdbcType=INTEGER}, #{payType,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.datangedu.cn.model.Business_order.BusinessOrder">
+    insert into business_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="businessNo != null">
+        BUSINESS_NO,
+      </if>
+      <if test="orderInfo != null">
+        ORDER_INFO,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="totalPrice != null">
+        TOTAL_PRICE,
+      </if>
+      <if test="payType != null">
+        PAY_TYPE,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="businessNo != null">
+        #{businessNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderInfo != null">
+        #{orderInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="totalPrice != null">
+        #{totalPrice,jdbcType=INTEGER},
+      </if>
+      <if test="payType != null">
+        #{payType,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.datangedu.cn.model.Business_order.BusinessOrderExample" resultType="java.lang.Long">
+    select count(*) from business_order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update business_order
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessNo != null">
+        BUSINESS_NO = #{record.businessNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderInfo != null">
+        ORDER_INFO = #{record.orderInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        STATUS = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.totalPrice != null">
+        TOTAL_PRICE = #{record.totalPrice,jdbcType=INTEGER},
+      </if>
+      <if test="record.payType != null">
+        PAY_TYPE = #{record.payType,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=DATE},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update business_order
+    set ID = #{record.id,jdbcType=VARCHAR},
+      BUSINESS_NO = #{record.businessNo,jdbcType=VARCHAR},
+      ORDER_INFO = #{record.orderInfo,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=INTEGER},
+      TOTAL_PRICE = #{record.totalPrice,jdbcType=INTEGER},
+      PAY_TYPE = #{record.payType,jdbcType=INTEGER},
+      CREATE_TIME = #{record.createTime,jdbcType=DATE}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.datangedu.cn.model.Business_order.BusinessOrder">
+    update business_order
+    <set>
+      <if test="businessNo != null">
+        BUSINESS_NO = #{businessNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderInfo != null">
+        ORDER_INFO = #{orderInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="totalPrice != null">
+        TOTAL_PRICE = #{totalPrice,jdbcType=INTEGER},
+      </if>
+      <if test="payType != null">
+        PAY_TYPE = #{payType,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=DATE},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.datangedu.cn.model.Business_order.BusinessOrder">
+    update business_order
+    set BUSINESS_NO = #{businessNo,jdbcType=VARCHAR},
+      ORDER_INFO = #{orderInfo,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=INTEGER},
+      TOTAL_PRICE = #{totalPrice,jdbcType=INTEGER},
+      PAY_TYPE = #{payType,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=DATE}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
