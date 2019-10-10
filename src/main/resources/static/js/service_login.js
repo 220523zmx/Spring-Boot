@@ -1,3 +1,3 @@
 $(".login-btn").on("click", function(){
-    location.href="service_product.html"
+    location.href="toPage?url=service_product.html"
 })
