@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.datangedu.cn.dao.mapper.OrderMapper">
+  <resultMap id="BaseResultMap" type="com.datangedu.cn.model.order.Order">
+    <id column="ORDE_ID" jdbcType="INTEGER" property="ordeId" />
+    <id column="ORDE_CUSTOMERID" jdbcType="VARCHAR" property="ordeCustomerid" />
+    <result column="ORDE_PRODUCT" jdbcType="VARCHAR" property="ordeProduct" />
+    <result column="ORDE_PRICE" jdbcType="INTEGER" property="ordePrice" />
+    <result column="ORDE_STARTTIME" jdbcType="TIMESTAMP" property="ordeStarttime" />
+    <result column="ORDE_CUSTOMERNAME" jdbcType="VARCHAR" property="ordeCustomername" />
+    <result column="ORDE_PAYWAY" jdbcType="INTEGER" property="ordePayway" />
+    <result column="ORDE_STATE" jdbcType="INTEGER" property="ordeState" />
+    <result column="ORDE_EVALUATION" jdbcType="VARCHAR" property="ordeEvaluation" />
+    <result column="ORDE_EVALUATIONSTATUS" jdbcType="INTEGER" property="ordeEvaluationstatus" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ORDE_ID, ORDE_CUSTOMERID, ORDE_PRODUCT, ORDE_PRICE, ORDE_STARTTIME, ORDE_CUSTOMERNAME, 
+    ORDE_PAYWAY, ORDE_STATE, ORDE_EVALUATION, ORDE_EVALUATIONSTATUS
+  </sql>
+  <select id="selectByExample" parameterType="com.datangedu.cn.model.order.OrderExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="com.datangedu.cn.model.order.OrderKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from order
+    where ORDE_ID = #{ordeId,jdbcType=INTEGER}
+      and ORDE_CUSTOMERID = #{ordeCustomerid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.datangedu.cn.model.order.OrderKey">
+    delete from order
+    where ORDE_ID = #{ordeId,jdbcType=INTEGER}
+      and ORDE_CUSTOMERID = #{ordeCustomerid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.datangedu.cn.model.order.OrderExample">
+    delete from order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.datangedu.cn.model.order.Order">
+    insert into order (ORDE_ID, ORDE_CUSTOMERID, ORDE_PRODUCT, 
+      ORDE_PRICE, ORDE_STARTTIME, ORDE_CUSTOMERNAME, 
+      ORDE_PAYWAY, ORDE_STATE, ORDE_EVALUATION, 
+      ORDE_EVALUATIONSTATUS)
+    values (#{ordeId,jdbcType=INTEGER}, #{ordeCustomerid,jdbcType=VARCHAR}, #{ordeProduct,jdbcType=VARCHAR}, 
+      #{ordePrice,jdbcType=INTEGER}, #{ordeStarttime,jdbcType=TIMESTAMP}, #{ordeCustomername,jdbcType=VARCHAR}, 
+      #{ordePayway,jdbcType=INTEGER}, #{ordeState,jdbcType=INTEGER}, #{ordeEvaluation,jdbcType=VARCHAR}, 
+      #{ordeEvaluationstatus,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.datangedu.cn.model.order.Order">
+    insert into order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ordeId != null">
+        ORDE_ID,
+      </if>
+      <if test="ordeCustomerid != null">
+        ORDE_CUSTOMERID,
+      </if>
+      <if test="ordeProduct != null">
+        ORDE_PRODUCT,
+      </if>
+      <if test="ordePrice != null">
+        ORDE_PRICE,
+      </if>
+      <if test="ordeStarttime != null">
+        ORDE_STARTTIME,
+      </if>
+      <if test="ordeCustomername != null">
+        ORDE_CUSTOMERNAME,
+      </if>
+      <if test="ordePayway != null">
+        ORDE_PAYWAY,
+      </if>
+      <if test="ordeState != null">
+        ORDE_STATE,
+      </if>
+      <if test="ordeEvaluation != null">
+        ORDE_EVALUATION,
+      </if>
+      <if test="ordeEvaluationstatus != null">
+        ORDE_EVALUATIONSTATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ordeId != null">
+        #{ordeId,jdbcType=INTEGER},
+      </if>
+      <if test="ordeCustomerid != null">
+        #{ordeCustomerid,jdbcType=VARCHAR},
+      </if>
+      <if test="ordeProduct != null">
+        #{ordeProduct,jdbcType=VARCHAR},
+      </if>
+      <if test="ordePrice != null">
+        #{ordePrice,jdbcType=INTEGER},
+      </if>
+      <if test="ordeStarttime != null">
+        #{ordeStarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ordeCustomername != null">
+        #{ordeCustomername,jdbcType=VARCHAR},
+      </if>
+      <if test="ordePayway != null">
+        #{ordePayway,jdbcType=INTEGER},
+      </if>
+      <if test="ordeState != null">
+        #{ordeState,jdbcType=INTEGER},
+      </if>
+      <if test="ordeEvaluation != null">
+        #{ordeEvaluation,jdbcType=VARCHAR},
+      </if>
+      <if test="ordeEvaluationstatus != null">
+        #{ordeEvaluationstatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.datangedu.cn.model.order.OrderExample" resultType="java.lang.Long">
+    select count(*) from order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update order
+    <set>
+      <if test="record.ordeId != null">
+        ORDE_ID = #{record.ordeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.ordeCustomerid != null">
+        ORDE_CUSTOMERID = #{record.ordeCustomerid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ordeProduct != null">
+        ORDE_PRODUCT = #{record.ordeProduct,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ordePrice != null">
+        ORDE_PRICE = #{record.ordePrice,jdbcType=INTEGER},
+      </if>
+      <if test="record.ordeStarttime != null">
+        ORDE_STARTTIME = #{record.ordeStarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.ordeCustomername != null">
+        ORDE_CUSTOMERNAME = #{record.ordeCustomername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ordePayway != null">
+        ORDE_PAYWAY = #{record.ordePayway,jdbcType=INTEGER},
+      </if>
+      <if test="record.ordeState != null">
+        ORDE_STATE = #{record.ordeState,jdbcType=INTEGER},
+      </if>
+      <if test="record.ordeEvaluation != null">
+        ORDE_EVALUATION = #{record.ordeEvaluation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ordeEvaluationstatus != null">
+        ORDE_EVALUATIONSTATUS = #{record.ordeEvaluationstatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update order
+    set ORDE_ID = #{record.ordeId,jdbcType=INTEGER},
+      ORDE_CUSTOMERID = #{record.ordeCustomerid,jdbcType=VARCHAR},
+      ORDE_PRODUCT = #{record.ordeProduct,jdbcType=VARCHAR},
+      ORDE_PRICE = #{record.ordePrice,jdbcType=INTEGER},
+      ORDE_STARTTIME = #{record.ordeStarttime,jdbcType=TIMESTAMP},
+      ORDE_CUSTOMERNAME = #{record.ordeCustomername,jdbcType=VARCHAR},
+      ORDE_PAYWAY = #{record.ordePayway,jdbcType=INTEGER},
+      ORDE_STATE = #{record.ordeState,jdbcType=INTEGER},
+      ORDE_EVALUATION = #{record.ordeEvaluation,jdbcType=VARCHAR},
+      ORDE_EVALUATIONSTATUS = #{record.ordeEvaluationstatus,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.datangedu.cn.model.order.Order">
+    update order
+    <set>
+      <if test="ordeProduct != null">
+        ORDE_PRODUCT = #{ordeProduct,jdbcType=VARCHAR},
+      </if>
+      <if test="ordePrice != null">
+        ORDE_PRICE = #{ordePrice,jdbcType=INTEGER},
+      </if>
+      <if test="ordeStarttime != null">
+        ORDE_STARTTIME = #{ordeStarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ordeCustomername != null">
+        ORDE_CUSTOMERNAME = #{ordeCustomername,jdbcType=VARCHAR},
+      </if>
+      <if test="ordePayway != null">
+        ORDE_PAYWAY = #{ordePayway,jdbcType=INTEGER},
+      </if>
+      <if test="ordeState != null">
+        ORDE_STATE = #{ordeState,jdbcType=INTEGER},
+      </if>
+      <if test="ordeEvaluation != null">
+        ORDE_EVALUATION = #{ordeEvaluation,jdbcType=VARCHAR},
+      </if>
+      <if test="ordeEvaluationstatus != null">
+        ORDE_EVALUATIONSTATUS = #{ordeEvaluationstatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ORDE_ID = #{ordeId,jdbcType=INTEGER}
+      and ORDE_CUSTOMERID = #{ordeCustomerid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.datangedu.cn.model.order.Order">
+    update order
+    set ORDE_PRODUCT = #{ordeProduct,jdbcType=VARCHAR},
+      ORDE_PRICE = #{ordePrice,jdbcType=INTEGER},
+      ORDE_STARTTIME = #{ordeStarttime,jdbcType=TIMESTAMP},
+      ORDE_CUSTOMERNAME = #{ordeCustomername,jdbcType=VARCHAR},
+      ORDE_PAYWAY = #{ordePayway,jdbcType=INTEGER},
+      ORDE_STATE = #{ordeState,jdbcType=INTEGER},
+      ORDE_EVALUATION = #{ordeEvaluation,jdbcType=VARCHAR},
+      ORDE_EVALUATIONSTATUS = #{ordeEvaluationstatus,jdbcType=INTEGER}
+    where ORDE_ID = #{ordeId,jdbcType=INTEGER}
+      and ORDE_CUSTOMERID = #{ordeCustomerid,jdbcType=VARCHAR}
+  </update>
+</mapper>

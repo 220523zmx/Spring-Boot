@@ -1,7 +1,8 @@
 package com.datangedu.cn.dao.mapper;
 
-import com.datangedu.cn.model.Cart.Cart;
-import com.datangedu.cn.model.Cart.CartExample;
+import com.datangedu.cn.model.cart.Cart;
+import com.datangedu.cn.model.cart.CartExample;
+import com.datangedu.cn.model.cart.CartKey;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -10,7 +11,7 @@ public interface CartMapper {
 
     int deleteByExample(CartExample example);
 
-    int deleteByPrimaryKey(String id);
+    int deleteByPrimaryKey(CartKey key);
 
     int insert(Cart record);
 
@@ -18,7 +19,7 @@ public interface CartMapper {
 
     List<Cart> selectByExample(CartExample example);
 
-    Cart selectByPrimaryKey(String id);
+    Cart selectByPrimaryKey(CartKey key);
 
     int updateByExampleSelective(@Param("record") Cart record, @Param("example") CartExample example);
 
