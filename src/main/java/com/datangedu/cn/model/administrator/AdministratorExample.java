@@ -105,76 +105,6 @@ public class AdministratorExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andAdmiPhoneIsNull() {
-            addCriterion("ADMI_PHONE is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdmiPhoneIsNotNull() {
-            addCriterion("ADMI_PHONE is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdmiPhoneEqualTo(String value) {
-            addCriterion("ADMI_PHONE =", value, "admiPhone");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdmiPhoneNotEqualTo(String value) {
-            addCriterion("ADMI_PHONE <>", value, "admiPhone");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdmiPhoneGreaterThan(String value) {
-            addCriterion("ADMI_PHONE >", value, "admiPhone");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdmiPhoneGreaterThanOrEqualTo(String value) {
-            addCriterion("ADMI_PHONE >=", value, "admiPhone");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdmiPhoneLessThan(String value) {
-            addCriterion("ADMI_PHONE <", value, "admiPhone");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdmiPhoneLessThanOrEqualTo(String value) {
-            addCriterion("ADMI_PHONE <=", value, "admiPhone");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdmiPhoneLike(String value) {
-            addCriterion("ADMI_PHONE like", value, "admiPhone");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdmiPhoneNotLike(String value) {
-            addCriterion("ADMI_PHONE not like", value, "admiPhone");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdmiPhoneIn(List<String> values) {
-            addCriterion("ADMI_PHONE in", values, "admiPhone");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdmiPhoneNotIn(List<String> values) {
-            addCriterion("ADMI_PHONE not in", values, "admiPhone");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdmiPhoneBetween(String value1, String value2) {
-            addCriterion("ADMI_PHONE between", value1, value2, "admiPhone");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdmiPhoneNotBetween(String value1, String value2) {
-            addCriterion("ADMI_PHONE not between", value1, value2, "admiPhone");
-            return (Criteria) this;
-        }
-
         public Criteria andAdmiIdIsNull() {
             addCriterion("ADMI_ID is null");
             return (Criteria) this;
@@ -242,6 +172,76 @@ public class AdministratorExample {
 
         public Criteria andAdmiIdNotBetween(String value1, String value2) {
             addCriterion("ADMI_ID not between", value1, value2, "admiId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdmiPhoneIsNull() {
+            addCriterion("ADMI_PHONE is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdmiPhoneIsNotNull() {
+            addCriterion("ADMI_PHONE is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdmiPhoneEqualTo(String value) {
+            addCriterion("ADMI_PHONE =", value, "admiPhone");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdmiPhoneNotEqualTo(String value) {
+            addCriterion("ADMI_PHONE <>", value, "admiPhone");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdmiPhoneGreaterThan(String value) {
+            addCriterion("ADMI_PHONE >", value, "admiPhone");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdmiPhoneGreaterThanOrEqualTo(String value) {
+            addCriterion("ADMI_PHONE >=", value, "admiPhone");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdmiPhoneLessThan(String value) {
+            addCriterion("ADMI_PHONE <", value, "admiPhone");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdmiPhoneLessThanOrEqualTo(String value) {
+            addCriterion("ADMI_PHONE <=", value, "admiPhone");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdmiPhoneLike(String value) {
+            addCriterion("ADMI_PHONE like", value, "admiPhone");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdmiPhoneNotLike(String value) {
+            addCriterion("ADMI_PHONE not like", value, "admiPhone");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdmiPhoneIn(List<String> values) {
+            addCriterion("ADMI_PHONE in", values, "admiPhone");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdmiPhoneNotIn(List<String> values) {
+            addCriterion("ADMI_PHONE not in", values, "admiPhone");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdmiPhoneBetween(String value1, String value2) {
+            addCriterion("ADMI_PHONE between", value1, value2, "admiPhone");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdmiPhoneNotBetween(String value1, String value2) {
+            addCriterion("ADMI_PHONE not between", value1, value2, "admiPhone");
             return (Criteria) this;
         }
 

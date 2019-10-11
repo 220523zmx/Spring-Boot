@@ -2,7 +2,11 @@ package com.datangedu.cn.model.order;
 
 import java.util.Date;
 
-public class Order extends OrderKey {
+public class Order {
+    private Integer ordeId;
+
+    private String ordeCustomerid;
+
     private String ordeProduct;
 
     private Integer ordePrice;
@@ -18,6 +22,22 @@ public class Order extends OrderKey {
     private String ordeEvaluation;
 
     private Integer ordeEvaluationstatus;
+
+    public Integer getOrdeId() {
+        return ordeId;
+    }
+
+    public void setOrdeId(Integer ordeId) {
+        this.ordeId = ordeId;
+    }
+
+    public String getOrdeCustomerid() {
+        return ordeCustomerid;
+    }
+
+    public void setOrdeCustomerid(String ordeCustomerid) {
+        this.ordeCustomerid = ordeCustomerid == null ? null : ordeCustomerid.trim();
+    }
 
     public String getOrdeProduct() {
         return ordeProduct;

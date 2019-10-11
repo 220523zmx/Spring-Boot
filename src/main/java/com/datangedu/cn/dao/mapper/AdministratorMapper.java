@@ -10,21 +10,13 @@ public interface AdministratorMapper {
 
     int deleteByExample(AdministratorExample example);
 
-    int deleteByPrimaryKey(String admiPhone);
-
     int insert(Administrator record);
 
     int insertSelective(Administrator record);
 
     List<Administrator> selectByExample(AdministratorExample example);
 
-    Administrator selectByPrimaryKey(String admiPhone);
-
     int updateByExampleSelective(@Param("record") Administrator record, @Param("example") AdministratorExample example);
 
     int updateByExample(@Param("record") Administrator record, @Param("example") AdministratorExample example);
-
-    int updateByPrimaryKeySelective(Administrator record);
-
-    int updateByPrimaryKey(Administrator record);
 }

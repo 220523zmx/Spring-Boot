@@ -3,9 +3,9 @@ package com.datangedu.cn.model.administrator;
 import java.util.Date;
 
 public class Administrator {
-    private String admiPhone;
-
     private String admiId;
+
+    private String admiPhone;
 
     private String admiPassword;
 
@@ -19,20 +19,20 @@ public class Administrator {
 
     private Date admiCretime;
 
-    public String getAdmiPhone() {
-        return admiPhone;
-    }
-
-    public void setAdmiPhone(String admiPhone) {
-        this.admiPhone = admiPhone == null ? null : admiPhone.trim();
-    }
-
     public String getAdmiId() {
         return admiId;
     }
 
     public void setAdmiId(String admiId) {
         this.admiId = admiId == null ? null : admiId.trim();
+    }
+
+    public String getAdmiPhone() {
+        return admiPhone;
+    }
+
+    public void setAdmiPhone(String admiPhone) {
+        this.admiPhone = admiPhone == null ? null : admiPhone.trim();
     }
 
     public String getAdmiPassword() {

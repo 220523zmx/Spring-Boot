@@ -3,8 +3,6 @@ package com.datangedu.cn.model.customers;
 import java.util.Date;
 
 public class Customers {
-    private String custPhone;
-
     private String custId;
 
     private String custName;
@@ -12,6 +10,8 @@ public class Customers {
     private String custPortrait;
 
     private Integer custSex;
+
+    private String custPhone;
 
     private Integer custRegion;
 
@@ -24,14 +24,6 @@ public class Customers {
     private Integer custPrice;
 
     private Integer custState;
-
-    public String getCustPhone() {
-        return custPhone;
-    }
-
-    public void setCustPhone(String custPhone) {
-        this.custPhone = custPhone == null ? null : custPhone.trim();
-    }
 
     public String getCustId() {
         return custId;
@@ -63,6 +55,14 @@ public class Customers {
 
     public void setCustSex(Integer custSex) {
         this.custSex = custSex;
+    }
+
+    public String getCustPhone() {
+        return custPhone;
+    }
+
+    public void setCustPhone(String custPhone) {
+        this.custPhone = custPhone == null ? null : custPhone.trim();
     }
 
     public Integer getCustRegion() {

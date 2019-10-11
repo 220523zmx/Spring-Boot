@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.datangedu.cn.dao.mapper.AdministratorMapper">
   <resultMap id="BaseResultMap" type="com.datangedu.cn.model.administrator.Administrator">
-    <id column="ADMI_PHONE" jdbcType="VARCHAR" property="admiPhone" />
     <result column="ADMI_ID" jdbcType="VARCHAR" property="admiId" />
+    <result column="ADMI_PHONE" jdbcType="VARCHAR" property="admiPhone" />
     <result column="ADMI_PASSWORD" jdbcType="VARCHAR" property="admiPassword" />
     <result column="ADMI_PORTRAIT" jdbcType="VARCHAR" property="admiPortrait" />
     <result column="ADMI_NAME" jdbcType="VARCHAR" property="admiName" />
@@ -70,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ADMI_PHONE, ADMI_ID, ADMI_PASSWORD, ADMI_PORTRAIT, ADMI_NAME, ADMI_EMAIL, ADMI_STATE, 
+    ADMI_ID, ADMI_PHONE, ADMI_PASSWORD, ADMI_PORTRAIT, ADMI_NAME, ADMI_EMAIL, ADMI_STATE, 
     ADMI_CRETIME
   </sql>
   <select id="selectByExample" parameterType="com.datangedu.cn.model.administrator.AdministratorExample" resultMap="BaseResultMap">
@@ -87,16 +87,6 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from administrator
-    where ADMI_PHONE = #{admiPhone,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from administrator
-    where ADMI_PHONE = #{admiPhone,jdbcType=VARCHAR}
-  </delete>
   <delete id="deleteByExample" parameterType="com.datangedu.cn.model.administrator.AdministratorExample">
     delete from administrator
     <if test="_parameter != null">
@@ -104,21 +94,21 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.datangedu.cn.model.administrator.Administrator">
-    insert into administrator (ADMI_PHONE, ADMI_ID, ADMI_PASSWORD, 
+    insert into administrator (ADMI_ID, ADMI_PHONE, ADMI_PASSWORD, 
       ADMI_PORTRAIT, ADMI_NAME, ADMI_EMAIL, 
       ADMI_STATE, ADMI_CRETIME)
-    values (#{admiPhone,jdbcType=VARCHAR}, #{admiId,jdbcType=VARCHAR}, #{admiPassword,jdbcType=VARCHAR}, 
+    values (#{admiId,jdbcType=VARCHAR}, #{admiPhone,jdbcType=VARCHAR}, #{admiPassword,jdbcType=VARCHAR}, 
       #{admiPortrait,jdbcType=VARCHAR}, #{admiName,jdbcType=VARCHAR}, #{admiEmail,jdbcType=VARCHAR}, 
       #{admiState,jdbcType=INTEGER}, #{admiCretime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.datangedu.cn.model.administrator.Administrator">
     insert into administrator
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="admiPhone != null">
-        ADMI_PHONE,
-      </if>
       <if test="admiId != null">
         ADMI_ID,
+      </if>
+      <if test="admiPhone != null">
+        ADMI_PHONE,
       </if>
       <if test="admiPassword != null">
         ADMI_PASSWORD,
@@ -140,11 +130,11 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="admiPhone != null">
-        #{admiPhone,jdbcType=VARCHAR},
-      </if>
       <if test="admiId != null">
         #{admiId,jdbcType=VARCHAR},
+      </if>
+      <if test="admiPhone != null">
+        #{admiPhone,jdbcType=VARCHAR},
       </if>
       <if test="admiPassword != null">
         #{admiPassword,jdbcType=VARCHAR},
@@ -175,11 +165,11 @@
   <update id="updateByExampleSelective" parameterType="map">
     update administrator
     <set>
-      <if test="record.admiPhone != null">
-        ADMI_PHONE = #{record.admiPhone,jdbcType=VARCHAR},
-      </if>
       <if test="record.admiId != null">
         ADMI_ID = #{record.admiId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.admiPhone != null">
+        ADMI_PHONE = #{record.admiPhone,jdbcType=VARCHAR},
       </if>
       <if test="record.admiPassword != null">
         ADMI_PASSWORD = #{record.admiPassword,jdbcType=VARCHAR},
@@ -206,8 +196,8 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update administrator
-    set ADMI_PHONE = #{record.admiPhone,jdbcType=VARCHAR},
-      ADMI_ID = #{record.admiId,jdbcType=VARCHAR},
+    set ADMI_ID = #{record.admiId,jdbcType=VARCHAR},
+      ADMI_PHONE = #{record.admiPhone,jdbcType=VARCHAR},
       ADMI_PASSWORD = #{record.admiPassword,jdbcType=VARCHAR},
       ADMI_PORTRAIT = #{record.admiPortrait,jdbcType=VARCHAR},
       ADMI_NAME = #{record.admiName,jdbcType=VARCHAR},
@@ -217,43 +207,5 @@
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.datangedu.cn.model.administrator.Administrator">
-    update administrator
-    <set>
-      <if test="admiId != null">
-        ADMI_ID = #{admiId,jdbcType=VARCHAR},
-      </if>
-      <if test="admiPassword != null">
-        ADMI_PASSWORD = #{admiPassword,jdbcType=VARCHAR},
-      </if>
-      <if test="admiPortrait != null">
-        ADMI_PORTRAIT = #{admiPortrait,jdbcType=VARCHAR},
-      </if>
-      <if test="admiName != null">
-        ADMI_NAME = #{admiName,jdbcType=VARCHAR},
-      </if>
-      <if test="admiEmail != null">
-        ADMI_EMAIL = #{admiEmail,jdbcType=VARCHAR},
-      </if>
-      <if test="admiState != null">
-        ADMI_STATE = #{admiState,jdbcType=INTEGER},
-      </if>
-      <if test="admiCretime != null">
-        ADMI_CRETIME = #{admiCretime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where ADMI_PHONE = #{admiPhone,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.datangedu.cn.model.administrator.Administrator">
-    update administrator
-    set ADMI_ID = #{admiId,jdbcType=VARCHAR},
-      ADMI_PASSWORD = #{admiPassword,jdbcType=VARCHAR},
-      ADMI_PORTRAIT = #{admiPortrait,jdbcType=VARCHAR},
-      ADMI_NAME = #{admiName,jdbcType=VARCHAR},
-      ADMI_EMAIL = #{admiEmail,jdbcType=VARCHAR},
-      ADMI_STATE = #{admiState,jdbcType=INTEGER},
-      ADMI_CRETIME = #{admiCretime,jdbcType=TIMESTAMP}
-    where ADMI_PHONE = #{admiPhone,jdbcType=VARCHAR}
   </update>
 </mapper>

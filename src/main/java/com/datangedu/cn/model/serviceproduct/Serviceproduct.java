@@ -2,7 +2,11 @@ package com.datangedu.cn.model.serviceproduct;
 
 import java.util.Date;
 
-public class Serviceproduct extends ServiceproductKey {
+public class Serviceproduct {
+    private String servProductid;
+
+    private String servProviderid;
+
     private String servProductimg;
 
     private String servProductname;
@@ -22,6 +26,22 @@ public class Serviceproduct extends ServiceproductKey {
     private Integer servRecommended;
 
     private Integer servNecessary;
+
+    public String getServProductid() {
+        return servProductid;
+    }
+
+    public void setServProductid(String servProductid) {
+        this.servProductid = servProductid == null ? null : servProductid.trim();
+    }
+
+    public String getServProviderid() {
+        return servProviderid;
+    }
+
+    public void setServProviderid(String servProviderid) {
+        this.servProviderid = servProviderid == null ? null : servProviderid.trim();
+    }
 
     public String getServProductimg() {
         return servProductimg;

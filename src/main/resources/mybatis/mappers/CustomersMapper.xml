@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.datangedu.cn.dao.mapper.CustomersMapper">
   <resultMap id="BaseResultMap" type="com.datangedu.cn.model.customers.Customers">
-    <id column="CUST_PHONE" jdbcType="VARCHAR" property="custPhone" />
     <result column="CUST_ID" jdbcType="VARCHAR" property="custId" />
     <result column="CUST_NAME" jdbcType="VARCHAR" property="custName" />
     <result column="CUST_PORTRAIT" jdbcType="VARCHAR" property="custPortrait" />
     <result column="CUST_SEX" jdbcType="INTEGER" property="custSex" />
+    <result column="CUST_PHONE" jdbcType="VARCHAR" property="custPhone" />
     <result column="CUST_REGION" jdbcType="INTEGER" property="custRegion" />
     <result column="CUST_STARTTIME" jdbcType="TIMESTAMP" property="custStarttime" />
     <result column="CUST_EMAIL" jdbcType="VARCHAR" property="custEmail" />
@@ -73,7 +73,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    CUST_PHONE, CUST_ID, CUST_NAME, CUST_PORTRAIT, CUST_SEX, CUST_REGION, CUST_STARTTIME, 
+    CUST_ID, CUST_NAME, CUST_PORTRAIT, CUST_SEX, CUST_PHONE, CUST_REGION, CUST_STARTTIME, 
     CUST_EMAIL, CUST_NUMBER, CUST_PRICE, CUST_STATE
   </sql>
   <select id="selectByExample" parameterType="com.datangedu.cn.model.customers.CustomersExample" resultMap="BaseResultMap">
@@ -90,16 +90,6 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from customers
-    where CUST_PHONE = #{custPhone,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from customers
-    where CUST_PHONE = #{custPhone,jdbcType=VARCHAR}
-  </delete>
   <delete id="deleteByExample" parameterType="com.datangedu.cn.model.customers.CustomersExample">
     delete from customers
     <if test="_parameter != null">
@@ -107,21 +97,18 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.datangedu.cn.model.customers.Customers">
-    insert into customers (CUST_PHONE, CUST_ID, CUST_NAME, 
-      CUST_PORTRAIT, CUST_SEX, CUST_REGION, 
+    insert into customers (CUST_ID, CUST_NAME, CUST_PORTRAIT, 
+      CUST_SEX, CUST_PHONE, CUST_REGION, 
       CUST_STARTTIME, CUST_EMAIL, CUST_NUMBER, 
       CUST_PRICE, CUST_STATE)
-    values (#{custPhone,jdbcType=VARCHAR}, #{custId,jdbcType=VARCHAR}, #{custName,jdbcType=VARCHAR}, 
-      #{custPortrait,jdbcType=VARCHAR}, #{custSex,jdbcType=INTEGER}, #{custRegion,jdbcType=INTEGER}, 
+    values (#{custId,jdbcType=VARCHAR}, #{custName,jdbcType=VARCHAR}, #{custPortrait,jdbcType=VARCHAR}, 
+      #{custSex,jdbcType=INTEGER}, #{custPhone,jdbcType=VARCHAR}, #{custRegion,jdbcType=INTEGER}, 
       #{custStarttime,jdbcType=TIMESTAMP}, #{custEmail,jdbcType=VARCHAR}, #{custNumber,jdbcType=INTEGER}, 
       #{custPrice,jdbcType=INTEGER}, #{custState,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.datangedu.cn.model.customers.Customers">
     insert into customers
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="custPhone != null">
-        CUST_PHONE,
-      </if>
       <if test="custId != null">
         CUST_ID,
       </if>
@@ -133,6 +120,9 @@
       </if>
       <if test="custSex != null">
         CUST_SEX,
+      </if>
+      <if test="custPhone != null">
+        CUST_PHONE,
       </if>
       <if test="custRegion != null">
         CUST_REGION,
@@ -154,9 +144,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="custPhone != null">
-        #{custPhone,jdbcType=VARCHAR},
-      </if>
       <if test="custId != null">
         #{custId,jdbcType=VARCHAR},
       </if>
@@ -168,6 +155,9 @@
       </if>
       <if test="custSex != null">
         #{custSex,jdbcType=INTEGER},
+      </if>
+      <if test="custPhone != null">
+        #{custPhone,jdbcType=VARCHAR},
       </if>
       <if test="custRegion != null">
         #{custRegion,jdbcType=INTEGER},
@@ -198,9 +188,6 @@
   <update id="updateByExampleSelective" parameterType="map">
     update customers
     <set>
-      <if test="record.custPhone != null">
-        CUST_PHONE = #{record.custPhone,jdbcType=VARCHAR},
-      </if>
       <if test="record.custId != null">
         CUST_ID = #{record.custId,jdbcType=VARCHAR},
       </if>
@@ -212,6 +199,9 @@
       </if>
       <if test="record.custSex != null">
         CUST_SEX = #{record.custSex,jdbcType=INTEGER},
+      </if>
+      <if test="record.custPhone != null">
+        CUST_PHONE = #{record.custPhone,jdbcType=VARCHAR},
       </if>
       <if test="record.custRegion != null">
         CUST_REGION = #{record.custRegion,jdbcType=INTEGER},
@@ -238,11 +228,11 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update customers
-    set CUST_PHONE = #{record.custPhone,jdbcType=VARCHAR},
-      CUST_ID = #{record.custId,jdbcType=VARCHAR},
+    set CUST_ID = #{record.custId,jdbcType=VARCHAR},
       CUST_NAME = #{record.custName,jdbcType=VARCHAR},
       CUST_PORTRAIT = #{record.custPortrait,jdbcType=VARCHAR},
       CUST_SEX = #{record.custSex,jdbcType=INTEGER},
+      CUST_PHONE = #{record.custPhone,jdbcType=VARCHAR},
       CUST_REGION = #{record.custRegion,jdbcType=INTEGER},
       CUST_STARTTIME = #{record.custStarttime,jdbcType=TIMESTAMP},
       CUST_EMAIL = #{record.custEmail,jdbcType=VARCHAR},
@@ -252,55 +242,5 @@
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.datangedu.cn.model.customers.Customers">
-    update customers
-    <set>
-      <if test="custId != null">
-        CUST_ID = #{custId,jdbcType=VARCHAR},
-      </if>
-      <if test="custName != null">
-        CUST_NAME = #{custName,jdbcType=VARCHAR},
-      </if>
-      <if test="custPortrait != null">
-        CUST_PORTRAIT = #{custPortrait,jdbcType=VARCHAR},
-      </if>
-      <if test="custSex != null">
-        CUST_SEX = #{custSex,jdbcType=INTEGER},
-      </if>
-      <if test="custRegion != null">
-        CUST_REGION = #{custRegion,jdbcType=INTEGER},
-      </if>
-      <if test="custStarttime != null">
-        CUST_STARTTIME = #{custStarttime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="custEmail != null">
-        CUST_EMAIL = #{custEmail,jdbcType=VARCHAR},
-      </if>
-      <if test="custNumber != null">
-        CUST_NUMBER = #{custNumber,jdbcType=INTEGER},
-      </if>
-      <if test="custPrice != null">
-        CUST_PRICE = #{custPrice,jdbcType=INTEGER},
-      </if>
-      <if test="custState != null">
-        CUST_STATE = #{custState,jdbcType=INTEGER},
-      </if>
-    </set>
-    where CUST_PHONE = #{custPhone,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.datangedu.cn.model.customers.Customers">
-    update customers
-    set CUST_ID = #{custId,jdbcType=VARCHAR},
-      CUST_NAME = #{custName,jdbcType=VARCHAR},
-      CUST_PORTRAIT = #{custPortrait,jdbcType=VARCHAR},
-      CUST_SEX = #{custSex,jdbcType=INTEGER},
-      CUST_REGION = #{custRegion,jdbcType=INTEGER},
-      CUST_STARTTIME = #{custStarttime,jdbcType=TIMESTAMP},
-      CUST_EMAIL = #{custEmail,jdbcType=VARCHAR},
-      CUST_NUMBER = #{custNumber,jdbcType=INTEGER},
-      CUST_PRICE = #{custPrice,jdbcType=INTEGER},
-      CUST_STATE = #{custState,jdbcType=INTEGER}
-    where CUST_PHONE = #{custPhone,jdbcType=VARCHAR}
   </update>
 </mapper>
