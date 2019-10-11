@@ -39,7 +39,7 @@
     <div class="main">
         <ul class="main-nav">
             <li>
-                <a href="toPage?url=service_product.html">
+                <a >
                     <i class="fa fa-home fa-fw"></i>
                     <p>主页</p>
                 </a>
@@ -112,14 +112,58 @@
                         <span>10001@qq.com</span>
                     </li>
                     <li>
-                        <button>修改</button>
+                        <button class="change-info">修改</button>
                     </li>
                 </ul>
             </div>
             <div class="main-sercive">银行信息。。</div>
         </div>
     </div>
-    <script src="./js/service_setting.js"></script>
+    <div class="masking">
+        <div class="scroller">
+            <h3>添加服务产品</h3>
+            <ul>
+                <li>
+                    <span>头像</span>
+                    <button>选择图片</button>
+                </li>
+                <li>
+                    <span>服务商名称</span>
+                    <input placeholder="请输入服务名称" />
+                </li>
+                <li>
+                    <span class="ver-top">选择地区</span>
+                    <select name="" id="">
+                        <option value="">省</option>
+                    </select>
+                    <select name="" id="">
+                        <option value="">市</option>
+                    </select>
+                    <select name="" id="">
+                        <option value="">区</option>
+                    </select>
+                </li>
+                <li>
+                    <span class="ver-top">手机号</span>
+                    <input type="text" placeholder="请输入手机号">
+                </li>
+                <li>
+                    <span class="ver-top">微信</span>
+                    <input type="text" placeholder="请输入微信">
+                </li>
+                <li>
+                    <span class="ver-top">QQ</span>
+                    <input type="text" placeholder="请输入QQ">
+                </li>
+                <li>
+                    <span class="ver-top">邮箱</span>
+                    <input type="text" placeholder="请输入邮箱">
+                </li>
+            </ul>
+            <button class="save">提交</button>
+            <button class="cancel">取消</button>
+        </div>
+        <script src="./js/service_setting.js"></script>
 </body>
 
 </html>

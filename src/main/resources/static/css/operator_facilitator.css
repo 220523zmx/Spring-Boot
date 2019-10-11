@@ -34,13 +34,6 @@
     cursor: pointer;
 }
 
-.product-action span {
-    display: inline-block;
-    font-size: 12px;
-    text-align: center;
-    color: #fff;
-    border-radius: 2px;
-}
 
 .add-product-action {
     width: 109px;

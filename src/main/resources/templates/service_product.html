@@ -39,7 +39,7 @@
     <div class="main">
         <ul class="main-nav">
             <li>
-                <a href="toPage?url=service_product.html">
+                <a >
                     <i class="fa fa-home fa-fw"></i>
                     <p>主页</p>
                 </a>
@@ -83,15 +83,6 @@
             </ul>
             <div class="main-content">
                 <div class="search">
-                    <select>
-                        <option value="1">--选择服务类型</option>
-                        <option value="2">选择服务类型1</option>
-                        <option value="3">选择服务类型2</option>
-                        <option value="4">选择服务类型3</option>
-                    </select>
-                    <select>
-                        <option value="">--选择服务分类</option>
-                    </select>
                     <input placeholder="服务名称" /><button><i class="fa fa-search fa-fw"></i></button>
                 </div>
                 <div class="product-action">
@@ -136,6 +127,31 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+    </div>
+    <div class="masking">
+        <div class="scroller">
+            <h3>添加服务产品</h3>
+            <ul>
+                <li>
+                    <span>图片简介</span>
+                    <button>选择图片</button>
+                </li>
+                <li>
+                    <span>服务名称</span>
+                    <input placeholder="请输入服务名称" />
+                </li>
+                <li>
+                    <span class="ver-top">服务说明</span>
+                    <textarea name="" id="" cols="45" rows="7"></textarea>
+                </li>
+                <li>
+                    <span>服务价格</span>
+                    <input type="number" placeholder="请输入服务价格">
+                </li>
+            </ul>
+            <button class="save">提交</button>
+            <button class="cancel">取消</button>
         </div>
     </div>
     <script src="./js/service_product.js"></script>

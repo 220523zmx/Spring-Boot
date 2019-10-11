@@ -26,3 +26,14 @@ $(".order2").on("click", function(){
 $(".order3").on("click", function(){
     $(".main-top li").eq(3).text("未通过用户");
 })
+$(".change-info").on("click", function(event){
+    $(".masking").show();
+})
+$(".save").on("click", function(event){
+    $(".masking").hide();
+    console.log("保存");
+})
+$(".cancel").on("click", function(event){
+    $(".masking").hide();
+    console.log("取消");
+})

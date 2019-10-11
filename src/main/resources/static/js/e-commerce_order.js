@@ -16,3 +16,6 @@ $(".user-action a").on("click", function(event){
     $(".user-action a").removeClass("bg-gray");
     $(event.target).addClass("bg-gray");
 })
+function pay(){
+    location.href="toPage?url=e-commerce_settlement.html";
+}
