@@ -35,6 +35,7 @@ public class ControllerCustomerRegister {
 			  case 11:map.put("state", "验证码错误");break;
 			  case 20:map.put("state", "请输入11位的移动端电话号码~");break;
 			  case 21:map.put("state", "请输入11位的移动端电话号码~");break;
+			  case 22:map.put("state", "该电话号已注册~");break;
 			  case 30:map.put("state", "请输入6-20位不包含中文字符的密码~");break;
 			  case 31:map.put("state", "密码长度小于6位，请输入6-20位不包含中文字符的密码~");break;
 			  case 32:map.put("state", "密码长度大于20位，请输入6-20位不包含中文字符的密码~");break;

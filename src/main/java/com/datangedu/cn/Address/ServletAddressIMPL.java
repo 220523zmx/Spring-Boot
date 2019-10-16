@@ -35,6 +35,7 @@ public class ServletAddressIMPL implements ServletAddress {
 		CitysExample.Criteria criteria = citysExample.createCriteria();
 		criteria.andProvincecodeEqualTo(request.getParameter("provCode")); 
 		return citysMapper.selectByExample(citysExample);
+		
 	}
 	@Resource
 	AreaMapper areaMapper; 
