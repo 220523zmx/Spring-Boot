@@ -1,6 +1,6 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,27 +8,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/public.css">
     <link rel="stylesheet" href="./css/e-commerce_register.css">
+    <script src="./js/jquery-3.4.1.min.js"></script>
 </head>
-<script>
-	function CustomerRegister()
-	{
-		$.ajax({
-			type:"post",
-			url:"/customer/register",
-			dataType:"json",
-			success:function(data)
-			{
-				console.log("成功");
-			}
-			error:function(data)
-			{
-				console.log("失败");
-			}
-		})
-	}
-
-
-</script>
 <body>
     <div class="headder-top">
         <div class="width1200 headder-top-content">
@@ -49,28 +30,39 @@
         <ul class="main">
             <ul class="input">
                 <li>
-                    <input type="text" placeholder="请输入手机号">
+                    <input class = "cust_phone" type="text"  placeholder="请输入手机号">
                 </li>
                 <li>
                     <input type="text" class="code" placeholder="请输入验证码">
-                    <img src="./images/code.png" alt="">
+                    <img  class="vimg" th:src="@{code}" alt = "123456" style="cursor:pointer;" title="看不清可单击图片刷新"/>
+                    
                 </li>
                 <li>
-                    <select name="" id="">
-                        <option value="">省</option>
-                    </select>
-                    <select name="" id="">
-                        <option value="">市</option>
-                    </select>
-                    <select name="" id="">
-                        <option value="">区</option>
-                    </select>
+                    <select id="province"name="province" >
+                            <option value="-1">-- 请选择省 --</option>
+                        </select>
+                        
+                        <!--<select th:each="province, ${provinceList}">
+                            <option th:value="${province.code}" th:text="${province.name}"></option>
+                        </select> -->
+                        
+                        <!-- 市 -->
+                        <select id="city" name="city" >
+                            <option value="-1">-- 请选择市 --</option>
+                        </select>
+                        <!-- 县(区) -->
+                        <select id="area" name="area" >
+                            <option value="-1">-- 请选择县(区) --</option>
+                        </select>
+                        
+                        
+
                 </li>
                 <li>
-                    <input type="text" placeholder="请设置密码">
+                    <input class = "cust_password" type="text" placeholder="请设置密码">
                 </li>
                 <li>
-                    <p class="login-btn font-aqua">立即注册</p>
+                    <button class="login-btn font-aqua" onclick = "CustomerRegister()">立即注册</button>
                 </li>
             </ul>
             <ul class="register">
@@ -82,7 +74,7 @@
             </ul>
         </ul>
     </ul>
-            <script src="./js/e-commerce_register.js"></script>
+    <script src="./js/e-commerce_register.js"></script>
 </body>
 
 </html>

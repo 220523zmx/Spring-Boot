@@ -7,12 +7,13 @@
     <result column="CUST_PORTRAIT" jdbcType="VARCHAR" property="custPortrait" />
     <result column="CUST_SEX" jdbcType="INTEGER" property="custSex" />
     <result column="CUST_PHONE" jdbcType="VARCHAR" property="custPhone" />
-    <result column="CUST_REGION" jdbcType="INTEGER" property="custRegion" />
+    <result column="CUST_REGION" jdbcType="VARCHAR" property="custRegion" />
     <result column="CUST_STARTTIME" jdbcType="TIMESTAMP" property="custStarttime" />
     <result column="CUST_EMAIL" jdbcType="VARCHAR" property="custEmail" />
     <result column="CUST_NUMBER" jdbcType="INTEGER" property="custNumber" />
     <result column="CUST_PRICE" jdbcType="INTEGER" property="custPrice" />
     <result column="CUST_STATE" jdbcType="INTEGER" property="custState" />
+    <result column="CUST_PASSWORD" jdbcType="VARCHAR" property="custPassword" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -74,7 +75,7 @@
   </sql>
   <sql id="Base_Column_List">
     CUST_ID, CUST_NAME, CUST_PORTRAIT, CUST_SEX, CUST_PHONE, CUST_REGION, CUST_STARTTIME, 
-    CUST_EMAIL, CUST_NUMBER, CUST_PRICE, CUST_STATE
+    CUST_EMAIL, CUST_NUMBER, CUST_PRICE, CUST_STATE, CUST_PASSWORD
   </sql>
   <select id="selectByExample" parameterType="com.datangedu.cn.model.customers.CustomersExample" resultMap="BaseResultMap">
     select
@@ -100,11 +101,13 @@
     insert into customers (CUST_ID, CUST_NAME, CUST_PORTRAIT, 
       CUST_SEX, CUST_PHONE, CUST_REGION, 
       CUST_STARTTIME, CUST_EMAIL, CUST_NUMBER, 
-      CUST_PRICE, CUST_STATE)
+      CUST_PRICE, CUST_STATE, CUST_PASSWORD
+      )
     values (#{custId,jdbcType=VARCHAR}, #{custName,jdbcType=VARCHAR}, #{custPortrait,jdbcType=VARCHAR}, 
-      #{custSex,jdbcType=INTEGER}, #{custPhone,jdbcType=VARCHAR}, #{custRegion,jdbcType=INTEGER}, 
+      #{custSex,jdbcType=INTEGER}, #{custPhone,jdbcType=VARCHAR}, #{custRegion,jdbcType=VARCHAR}, 
       #{custStarttime,jdbcType=TIMESTAMP}, #{custEmail,jdbcType=VARCHAR}, #{custNumber,jdbcType=INTEGER}, 
-      #{custPrice,jdbcType=INTEGER}, #{custState,jdbcType=INTEGER})
+      #{custPrice,jdbcType=INTEGER}, #{custState,jdbcType=INTEGER}, #{custPassword,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.datangedu.cn.model.customers.Customers">
     insert into customers
@@ -142,6 +145,9 @@
       <if test="custState != null">
         CUST_STATE,
       </if>
+      <if test="custPassword != null">
+        CUST_PASSWORD,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="custId != null">
@@ -160,7 +166,7 @@
         #{custPhone,jdbcType=VARCHAR},
       </if>
       <if test="custRegion != null">
-        #{custRegion,jdbcType=INTEGER},
+        #{custRegion,jdbcType=VARCHAR},
       </if>
       <if test="custStarttime != null">
         #{custStarttime,jdbcType=TIMESTAMP},
@@ -176,6 +182,9 @@
       </if>
       <if test="custState != null">
         #{custState,jdbcType=INTEGER},
+      </if>
+      <if test="custPassword != null">
+        #{custPassword,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -204,7 +213,7 @@
         CUST_PHONE = #{record.custPhone,jdbcType=VARCHAR},
       </if>
       <if test="record.custRegion != null">
-        CUST_REGION = #{record.custRegion,jdbcType=INTEGER},
+        CUST_REGION = #{record.custRegion,jdbcType=VARCHAR},
       </if>
       <if test="record.custStarttime != null">
         CUST_STARTTIME = #{record.custStarttime,jdbcType=TIMESTAMP},
@@ -221,6 +230,9 @@
       <if test="record.custState != null">
         CUST_STATE = #{record.custState,jdbcType=INTEGER},
       </if>
+      <if test="record.custPassword != null">
+        CUST_PASSWORD = #{record.custPassword,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -233,12 +245,13 @@
       CUST_PORTRAIT = #{record.custPortrait,jdbcType=VARCHAR},
       CUST_SEX = #{record.custSex,jdbcType=INTEGER},
       CUST_PHONE = #{record.custPhone,jdbcType=VARCHAR},
-      CUST_REGION = #{record.custRegion,jdbcType=INTEGER},
+      CUST_REGION = #{record.custRegion,jdbcType=VARCHAR},
       CUST_STARTTIME = #{record.custStarttime,jdbcType=TIMESTAMP},
       CUST_EMAIL = #{record.custEmail,jdbcType=VARCHAR},
       CUST_NUMBER = #{record.custNumber,jdbcType=INTEGER},
       CUST_PRICE = #{record.custPrice,jdbcType=INTEGER},
-      CUST_STATE = #{record.custState,jdbcType=INTEGER}
+      CUST_STATE = #{record.custState,jdbcType=INTEGER},
+      CUST_PASSWORD = #{record.custPassword,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>

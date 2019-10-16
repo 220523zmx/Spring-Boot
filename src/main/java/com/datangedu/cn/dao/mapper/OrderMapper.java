@@ -1,10 +1,13 @@
 package com.datangedu.cn.dao.mapper;
 
-import com.datangedu.cn.model.order.Order;
-import com.datangedu.cn.model.order.OrderExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import com.datangedu.cn.model.order.Order;
+import com.datangedu.cn.model.order.OrderExample;
+@Mapper
 public interface OrderMapper {
     long countByExample(OrderExample example);
 

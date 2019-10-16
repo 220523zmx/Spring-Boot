@@ -13,7 +13,7 @@ public class Customers {
 
     private String custPhone;
 
-    private Integer custRegion;
+    private String custRegion;
 
     private Date custStarttime;
 
@@ -24,6 +24,8 @@ public class Customers {
     private Integer custPrice;
 
     private Integer custState;
+
+    private String custPassword;
 
     public String getCustId() {
         return custId;
@@ -65,12 +67,12 @@ public class Customers {
         this.custPhone = custPhone == null ? null : custPhone.trim();
     }
 
-    public Integer getCustRegion() {
+    public String getCustRegion() {
         return custRegion;
     }
 
-    public void setCustRegion(Integer custRegion) {
-        this.custRegion = custRegion;
+    public void setCustRegion(String custRegion) {
+        this.custRegion = custRegion == null ? null : custRegion.trim();
     }
 
     public Date getCustStarttime() {
@@ -111,5 +113,13 @@ public class Customers {
 
     public void setCustState(Integer custState) {
         this.custState = custState;
+    }
+
+    public String getCustPassword() {
+        return custPassword;
+    }
+
+    public void setCustPassword(String custPassword) {
+        this.custPassword = custPassword == null ? null : custPassword.trim();
     }
 }

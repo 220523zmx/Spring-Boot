@@ -1,10 +1,13 @@
 package com.datangedu.cn.dao.mapper;
 
-import com.datangedu.cn.model.serviceprovider.Serviceprovider;
-import com.datangedu.cn.model.serviceprovider.ServiceproviderExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import com.datangedu.cn.model.serviceprovider.Serviceprovider;
+import com.datangedu.cn.model.serviceprovider.ServiceproviderExample;
+@Mapper
 public interface ServiceproviderMapper {
     long countByExample(ServiceproviderExample example);
 

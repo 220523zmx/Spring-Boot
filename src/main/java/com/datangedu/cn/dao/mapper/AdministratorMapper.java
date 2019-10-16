@@ -1,10 +1,13 @@
 package com.datangedu.cn.dao.mapper;
 
-import com.datangedu.cn.model.administrator.Administrator;
-import com.datangedu.cn.model.administrator.AdministratorExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import com.datangedu.cn.model.administrator.Administrator;
+import com.datangedu.cn.model.administrator.AdministratorExample;
+@Mapper
 public interface AdministratorMapper {
     long countByExample(AdministratorExample example);
 

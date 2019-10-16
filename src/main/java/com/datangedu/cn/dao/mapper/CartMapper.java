@@ -1,10 +1,13 @@
 package com.datangedu.cn.dao.mapper;
 
-import com.datangedu.cn.model.cart.Cart;
-import com.datangedu.cn.model.cart.CartExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import com.datangedu.cn.model.cart.Cart;
+import com.datangedu.cn.model.cart.CartExample;
+@Mapper
 public interface CartMapper {
     long countByExample(CartExample example);
 
