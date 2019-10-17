@@ -3,6 +3,10 @@ $(".vimg").on("click", function() {
 	var timestamp = (new Date()).valueOf();
 	$(this).attr("src", "code?timestamp=" + timestamp);
 });
+$(function() {
+	var timestamp = (new Date()).valueOf();
+	$(this).attr("src", "code?timestamp=" + timestamp);
+});
 
 function CustomerRegister() {
 	var phone = $(".cust_phone").val();

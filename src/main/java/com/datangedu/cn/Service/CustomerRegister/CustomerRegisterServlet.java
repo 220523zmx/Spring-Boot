@@ -10,5 +10,6 @@ public interface CustomerRegisterServlet {
 
 	public int customerRegister(HttpServletRequest request) throws NoSuchAlgorithmException, UnsupportedEncodingException ;
 	public String customerId();
+	public boolean findphone(HttpServletRequest request);
 	
 }

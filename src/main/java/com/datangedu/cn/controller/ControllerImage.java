@@ -20,9 +20,10 @@ public class ControllerImage {
         response.setDateHeader("Expires", 0);
         HttpSession session = request.getSession();
         Image image = new Image(120, 40, 5,30);
+        System.out.println(image.getCode());
         session.setAttribute("code", image.getCode());
         image.write(response.getOutputStream());
-        System.out.println(image.getCode());
+        
         return null;
 	}
 
