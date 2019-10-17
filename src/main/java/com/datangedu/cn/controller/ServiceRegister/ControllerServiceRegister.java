@@ -1,4 +1,4 @@
-package com.datangedu.cn.controller.CustomerRegister;
+package com.datangedu.cn.controller.ServiceRegister;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -9,24 +9,26 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.datangedu.cn.Service.CustomerRegister.CustomerRegisterServlet;
+import com.datangedu.cn.Service.ServiceRegister.ServiceRegisterServlet;
 
 @Controller
-@RequestMapping("/customer")
-public class ControllerCustomerRegister {
+@RequestMapping("/service")
+public class ControllerServiceRegister {
 	@Resource
-	CustomerRegisterServlet customerRegister;
+	ServiceRegisterServlet serviceRegister;
 
 	@ResponseBody
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public Map<String, Object> register(HttpServletRequest request)
 			throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		Map<String, Object> map = new HashMap<String, Object>();
-		int state = customerRegister.customerRegister(request);
+		int state = serviceRegister.serviceRegister(request);
 		switch (state) {
 		case 10:
 			map.put("state", "请输入验证码");

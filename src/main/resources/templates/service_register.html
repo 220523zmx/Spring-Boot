@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/public.css">
     <link rel="stylesheet" href="./css/e-commerce_register.css">
+	 <script src="./js/jquery-3.4.1.min.js"></script>
 </head>
 
 <body>
@@ -30,28 +31,28 @@
         <ul class="main">
             <ul class="input">
                 <li>
-                    <input type="text" placeholder="请输入手机号">
+                    <input class = "serv_phone" type="text" placeholder="请输入手机号">
                 </li>
                 <li>
                     <input type="text" class="code" placeholder="请输入验证码">
-                    <img src="./images/code.png" alt="">
+                    <img  class="vimg" th:src="@{code}"  style="cursor:pointer;" title="看不清可单击图片刷新"/>
                 </li>
                 <li>
-                    <select name="" id="">
-                        <option value="">省</option>
-                    </select>
-                    <select name="" id="">
-                        <option value="">市</option>
-                    </select>
-                    <select name="" id="">
-                        <option value="">区</option>
-                    </select>
+                    <select id="province"name="province" >
+                            <option value="-1">-- 请选择省 --</option>
+                        </select>
+                    <select id="city" name="city" >
+                            <option value="-1">-- 请选择市 --</option>
+                        </select>
+                    <select id="area" name="area" >
+                            <option value="-1">-- 请选择县(区) --</option>
+                        </select>
                 </li>
                 <li>
-                    <input type="text" placeholder="请设置密码">
+                    <input class = "serv_password" type="text" placeholder="请设置密码">
                 </li>
                 <li>
-                    <p class="login-btn font-aqua">立即注册</p>
+                    <button class="login-btn font-aqua" onclick = "ServiceRegister()">立即注册</button>
                 </li>
             </ul>
             <ul class="register">
@@ -63,7 +64,7 @@
             </ul>
         </ul>
     </ul>
-            <script src="./js/e-commerce_register.js"></script>
+            <script src="./js/service_register.js"></script>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-package com.datangedu.cn.Service.CustomerRegister;
+package com.datangedu.cn.Service.ServiceRegister;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -13,17 +13,18 @@ import com.datangedu.cn.MD5.MD5;
 import com.datangedu.cn.Random.ServletRandom;
 import com.datangedu.cn.Random.ServletRandomIMPL;
 import com.datangedu.cn.dao.mapper.CustomersMapper;
+import com.datangedu.cn.dao.mapper.ServiceproviderMapper;
 import com.datangedu.cn.model.customers.Customers;
 import com.datangedu.cn.model.customers.CustomersExample;
-
+import com.datangedu.cn.model.serviceprovider.Serviceprovider;
+import com.datangedu.cn.model.serviceprovider.ServiceproviderExample;
 @Service
-public class CustomerRegisterServeltIMPL implements CustomerRegisterServlet {
+public class ServiceRegisterServletIMPL implements ServiceRegisterServlet {
 	@Resource
-	CustomersMapper customersMapper;
+	ServiceproviderMapper serviceproviderMapper;
 	ServletRandom servletRandom;
 
-	@Override
-	public int customerRegister(HttpServletRequest request)
+	public int serviceRegister(HttpServletRequest request)
 			throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		MD5 md5 = new MD5();
 		HttpSession session = request.getSession();
@@ -33,8 +34,8 @@ public class CustomerRegisterServeltIMPL implements CustomerRegisterServlet {
 		System.out.println("输入验证码" + code);
 		System.out.println("图片验证码" + vimg);
 		System.out.println("验证码是否：" + code.equals(vimg));
-		String id = customerId();
-		System.out.println("顾客id：" + id);
+		String id = serviceId();
+		System.out.println("服务商id：" + id);
 		if (request.getParameter("phone").length() == 0) {
 			return 20;
 		} // 未填写电话
@@ -69,29 +70,28 @@ public class CustomerRegisterServeltIMPL implements CustomerRegisterServlet {
 				} // 电话号已注册
 				else// 信息正确非空
 				{
-					Customers customers = new Customers();
-					customers.setCustPhone(request.getParameter("phone"));
-					customers.setCustPassword(md5.EncoderByMd5(request.getParameter("password")));
-					customers.setCustRegion(request.getParameter("area"));
-					customers.setCustId(id);
-					return customersMapper.insert(customers);
+					Serviceprovider serviceprovider= new Serviceprovider();
+					serviceprovider.setServProviderPhone(request.getParameter("phone"));
+					serviceprovider.setServProviderPassword(md5.EncoderByMd5(request.getParameter("password")));
+					serviceprovider.setServProviderRegion(request.getParameter("area"));
+					serviceprovider.setServProviderId(id);
+					return serviceproviderMapper.insert(serviceprovider);
 				}
 			} else {
 				return 11;// 验证码错误
 			}
 		}
-
 	}
 
-	public String customerId() {
-		CustomersExample customersExample = new CustomersExample();
-		CustomersExample.Criteria criteria = customersExample.createCriteria();
+	public String serviceId() {
+		ServiceproviderExample serviceproviderExample = new ServiceproviderExample();
+		ServiceproviderExample.Criteria criteria = serviceproviderExample.createCriteria();
 		boolean i = true;
 		do {
 			ServletRandomIMPL sRandom = new ServletRandomIMPL();
 			String id = sRandom.getRandomCode(11);
-			criteria.andCustIdEqualTo(id);
-			Long findid = customersMapper.countByExample(customersExample);
+			criteria.andServProviderIdEqualTo(id);
+			Long findid = serviceproviderMapper.countByExample(serviceproviderExample);
 			System.out.println("customeId-findid" + findid);
 			if (findid == 0) {
 				i = false;
@@ -104,10 +104,10 @@ public class CustomerRegisterServeltIMPL implements CustomerRegisterServlet {
 	}
 
 	public boolean findphone(HttpServletRequest request) {
-		CustomersExample customersExample = new CustomersExample();
-		CustomersExample.Criteria criteria = customersExample.createCriteria();
-		criteria.andCustPhoneEqualTo(request.getParameter("phone"));
-		Long status = customersMapper.countByExample(customersExample);
+		ServiceproviderExample serviceproviderExample = new ServiceproviderExample();
+		ServiceproviderExample.Criteria criteria = serviceproviderExample.createCriteria();
+		criteria.andServProviderPhoneEqualTo(request.getParameter("phone"));
+		Long status = serviceproviderMapper.countByExample(serviceproviderExample);
 		System.out.println("findphoone-status" + status);
 		if (status == 0) {
 			return true;
@@ -115,5 +115,4 @@ public class CustomerRegisterServeltIMPL implements CustomerRegisterServlet {
 			return false;
 		}
 	}
-
 }

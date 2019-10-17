@@ -4,9 +4,9 @@ $(".vimg").on("click", function() {
 	$(this).attr("src", "code?timestamp=" + timestamp);
 });
 
-function CustomerRegister() {
-	var phone = $(".cust_phone").val();
-	var password = $(".cust_password").val();
+function ServiceRegister() {
+	var phone = $(".serv_phone").val();
+	var password = $(".serv_password").val();
 	var code = $(".code").val();
 	var provice = $("#provice").val();
 	var city = $("#city").val();
@@ -14,7 +14,7 @@ function CustomerRegister() {
 	console.log(phone, password, code);
 	$.ajax({
 		type : "post",
-		url : "/customer/register",
+		url : "/service/register",
 		data : {
 			phone 		: phone,
 			password 	: password,

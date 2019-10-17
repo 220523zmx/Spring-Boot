@@ -9,7 +9,7 @@ public class Serviceprovider {
 
     private String servProviderName;
 
-    private Integer servProviderRegion;
+    private String servProviderRegion;
 
     private String servProviderPhone;
 
@@ -59,12 +59,12 @@ public class Serviceprovider {
         this.servProviderName = servProviderName == null ? null : servProviderName.trim();
     }
 
-    public Integer getServProviderRegion() {
+    public String getServProviderRegion() {
         return servProviderRegion;
     }
 
-    public void setServProviderRegion(Integer servProviderRegion) {
-        this.servProviderRegion = servProviderRegion;
+    public void setServProviderRegion(String servProviderRegion) {
+        this.servProviderRegion = servProviderRegion == null ? null : servProviderRegion.trim();
     }
 
     public String getServProviderPhone() {

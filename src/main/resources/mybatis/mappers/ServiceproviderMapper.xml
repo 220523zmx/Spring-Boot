@@ -5,7 +5,7 @@
     <result column="SERV_PROVIDER_ID" jdbcType="VARCHAR" property="servProviderId" />
     <result column="SERV_PROVIDER_IMG" jdbcType="VARCHAR" property="servProviderImg" />
     <result column="SERV_PROVIDER_NAME" jdbcType="VARCHAR" property="servProviderName" />
-    <result column="SERV_PROVIDER_REGION" jdbcType="INTEGER" property="servProviderRegion" />
+    <result column="SERV_PROVIDER_REGION" jdbcType="VARCHAR" property="servProviderRegion" />
     <result column="SERV_PROVIDER_PHONE" jdbcType="VARCHAR" property="servProviderPhone" />
     <result column="SERV_PROVIDER_PASSWORD" jdbcType="VARCHAR" property="servProviderPassword" />
     <result column="SERV_PROVIDER_STATE" jdbcType="INTEGER" property="servProviderState" />
@@ -113,7 +113,7 @@
       SERV_PROVIDER_CSPHONE, SERV_PROVIDER_BUSINESSLICENSE
       )
     values (#{servProviderId,jdbcType=VARCHAR}, #{servProviderImg,jdbcType=VARCHAR}, 
-      #{servProviderName,jdbcType=VARCHAR}, #{servProviderRegion,jdbcType=INTEGER}, #{servProviderPhone,jdbcType=VARCHAR}, 
+      #{servProviderName,jdbcType=VARCHAR}, #{servProviderRegion,jdbcType=VARCHAR}, #{servProviderPhone,jdbcType=VARCHAR}, 
       #{servProviderPassword,jdbcType=VARCHAR}, #{servProviderState,jdbcType=INTEGER}, 
       #{servProviderIntroduction,jdbcType=VARCHAR}, #{servProviderEmail,jdbcType=VARCHAR}, 
       #{servProviderStarttime,jdbcType=TIMESTAMP}, #{servCompanyIntrduction,jdbcType=VARCHAR}, 
@@ -184,7 +184,7 @@
         #{servProviderName,jdbcType=VARCHAR},
       </if>
       <if test="servProviderRegion != null">
-        #{servProviderRegion,jdbcType=INTEGER},
+        #{servProviderRegion,jdbcType=VARCHAR},
       </if>
       <if test="servProviderPhone != null">
         #{servProviderPhone,jdbcType=VARCHAR},
@@ -243,7 +243,7 @@
         SERV_PROVIDER_NAME = #{record.servProviderName,jdbcType=VARCHAR},
       </if>
       <if test="record.servProviderRegion != null">
-        SERV_PROVIDER_REGION = #{record.servProviderRegion,jdbcType=INTEGER},
+        SERV_PROVIDER_REGION = #{record.servProviderRegion,jdbcType=VARCHAR},
       </if>
       <if test="record.servProviderPhone != null">
         SERV_PROVIDER_PHONE = #{record.servProviderPhone,jdbcType=VARCHAR},
@@ -291,7 +291,7 @@
     set SERV_PROVIDER_ID = #{record.servProviderId,jdbcType=VARCHAR},
       SERV_PROVIDER_IMG = #{record.servProviderImg,jdbcType=VARCHAR},
       SERV_PROVIDER_NAME = #{record.servProviderName,jdbcType=VARCHAR},
-      SERV_PROVIDER_REGION = #{record.servProviderRegion,jdbcType=INTEGER},
+      SERV_PROVIDER_REGION = #{record.servProviderRegion,jdbcType=VARCHAR},
       SERV_PROVIDER_PHONE = #{record.servProviderPhone,jdbcType=VARCHAR},
       SERV_PROVIDER_PASSWORD = #{record.servProviderPassword,jdbcType=VARCHAR},
       SERV_PROVIDER_STATE = #{record.servProviderState,jdbcType=INTEGER},

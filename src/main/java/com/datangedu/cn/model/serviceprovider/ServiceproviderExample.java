@@ -325,52 +325,62 @@ public class ServiceproviderExample {
             return (Criteria) this;
         }
 
-        public Criteria andServProviderRegionEqualTo(Integer value) {
+        public Criteria andServProviderRegionEqualTo(String value) {
             addCriterion("SERV_PROVIDER_REGION =", value, "servProviderRegion");
             return (Criteria) this;
         }
 
-        public Criteria andServProviderRegionNotEqualTo(Integer value) {
+        public Criteria andServProviderRegionNotEqualTo(String value) {
             addCriterion("SERV_PROVIDER_REGION <>", value, "servProviderRegion");
             return (Criteria) this;
         }
 
-        public Criteria andServProviderRegionGreaterThan(Integer value) {
+        public Criteria andServProviderRegionGreaterThan(String value) {
             addCriterion("SERV_PROVIDER_REGION >", value, "servProviderRegion");
             return (Criteria) this;
         }
 
-        public Criteria andServProviderRegionGreaterThanOrEqualTo(Integer value) {
+        public Criteria andServProviderRegionGreaterThanOrEqualTo(String value) {
             addCriterion("SERV_PROVIDER_REGION >=", value, "servProviderRegion");
             return (Criteria) this;
         }
 
-        public Criteria andServProviderRegionLessThan(Integer value) {
+        public Criteria andServProviderRegionLessThan(String value) {
             addCriterion("SERV_PROVIDER_REGION <", value, "servProviderRegion");
             return (Criteria) this;
         }
 
-        public Criteria andServProviderRegionLessThanOrEqualTo(Integer value) {
+        public Criteria andServProviderRegionLessThanOrEqualTo(String value) {
             addCriterion("SERV_PROVIDER_REGION <=", value, "servProviderRegion");
             return (Criteria) this;
         }
 
-        public Criteria andServProviderRegionIn(List<Integer> values) {
+        public Criteria andServProviderRegionLike(String value) {
+            addCriterion("SERV_PROVIDER_REGION like", value, "servProviderRegion");
+            return (Criteria) this;
+        }
+
+        public Criteria andServProviderRegionNotLike(String value) {
+            addCriterion("SERV_PROVIDER_REGION not like", value, "servProviderRegion");
+            return (Criteria) this;
+        }
+
+        public Criteria andServProviderRegionIn(List<String> values) {
             addCriterion("SERV_PROVIDER_REGION in", values, "servProviderRegion");
             return (Criteria) this;
         }
 
-        public Criteria andServProviderRegionNotIn(List<Integer> values) {
+        public Criteria andServProviderRegionNotIn(List<String> values) {
             addCriterion("SERV_PROVIDER_REGION not in", values, "servProviderRegion");
             return (Criteria) this;
         }
 
-        public Criteria andServProviderRegionBetween(Integer value1, Integer value2) {
+        public Criteria andServProviderRegionBetween(String value1, String value2) {
             addCriterion("SERV_PROVIDER_REGION between", value1, value2, "servProviderRegion");
             return (Criteria) this;
         }
 
-        public Criteria andServProviderRegionNotBetween(Integer value1, Integer value2) {
+        public Criteria andServProviderRegionNotBetween(String value1, String value2) {
             addCriterion("SERV_PROVIDER_REGION not between", value1, value2, "servProviderRegion");
             return (Criteria) this;
         }
