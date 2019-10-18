@@ -9,4 +9,5 @@ public interface ServiceRegisterServlet {
 	public int serviceRegister(HttpServletRequest request)
 			throws NoSuchAlgorithmException, UnsupportedEncodingException ;
 	public String serviceId();
+	public boolean findphone(HttpServletRequest request);
 }

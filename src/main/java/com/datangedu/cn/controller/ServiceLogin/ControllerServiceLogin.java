@@ -1,4 +1,4 @@
-package com.datangedu.cn.controller.CustomerFind;
+package com.datangedu.cn.controller.ServiceLogin;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -15,18 +15,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.datangedu.cn.MD5.MD5;
-import com.datangedu.cn.Service.CustomerFind.CustomerFindServlet;
-import com.datangedu.cn.model.customers.Customers;
-import com.datangedu.cn.model.customers.CustomersExample;
+import com.datangedu.cn.Service.ServiceLogin.ServiceLoginServlet;
 
 @Controller
-@RequestMapping("/customer")
-public class ControllerCustomerFind {
+@RequestMapping("/service")
+public class ControllerServiceLogin {
 	@Resource
-	CustomerFindServlet customerFind;
+	ServiceLoginServlet serviceLogin;
 	@ResponseBody
-	@RequestMapping(value = "/find", method = RequestMethod.POST)
-	public Map<String, Object> find(HttpServletRequest request)
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public Map<String, Object> login(HttpServletRequest request)
 			throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		Map<String, Object> map = new HashMap<String, Object>();
 		MD5 md5 = new MD5();
@@ -40,47 +38,50 @@ public class ControllerCustomerFind {
 		if (request.getParameter("phone").length() == 0) {
 			map.put("state", "请输入11位的移动端电话号码~");
 		} // 未填写电话
-		else if (request.getParameter("newpassword").length() == 0
-				|| request.getParameter("againpassword").length() == 0) {
+		else if (request.getParameter("password").length() == 0) {
 			map.put("state", "请输入6-20位不包含中文字符的密码~");
-		} // 未填写密码并再次确认
+		} // 未填写密码
 		else if (request.getParameter("code").length() == 0) {
 			map.put("state", "请输入验证码");
 		} // 未输入验证码
 		else {
 			if (code.equals(vimg) == true) {
-				if (request.getParameter("newpassword").length() < 6) {
+				if (request.getParameter("password").length() < 6) {
 					map.put("state", "密码长度小于6位，请输入6-20位不包含中文字符的密码~");
 				} // 密码小于6位
-				else if (request.getParameter("newpassword").length() > 20) {
+				else if (request.getParameter("password").length() > 20) {
 					map.put("state", "密码长度大于20位，请输入6-20位不包含中文字符的密码~");
 				} // 密码大于20位
 				else if (request.getParameter("phone").length() != 11) {
 					map.put("state", "请输入11位的移动端电话号码~");
 				} // 电话非11位
+				else if (serviceLogin.findphone(request).equals("phonefalse")) {
+					map.put("state", "该电话号未注册~");
+				} // 电话号未注册
 				else// 信息正确非空
 				{
-					if (customerFind.findphone(request) == true) {
-						if (md5.EncoderByMd5(request.getParameter("newpassword"))
-								.equals(md5.EncoderByMd5(request.getParameter("againpassword")))) {
-							int state = customerFind.customerFind(request);
-							if(state == 1)
-							{map.put("state", "更改密码成功~");}
-							else
-							{map.put("state", "更改密码失败~");}
-						} else {
-							map.put("state", "两次输入的密码不同~");// 两次输入的密码不同
-						}
+					if (serviceLogin.findphone(request).equals(request.getParameter("phone")) == false) {
+						map.put("state", "账号或密码不正确~");// 电话号不匹配
+					} else if (serviceLogin.findpassword(request)
+							.equals(md5.EncoderByMd5(request.getParameter("password"))) == false) {
+						map.put("state", "账号或密码不正确~");// 密码不匹配
 					} else {
-						map.put("state", "该用户未注册~");// 改该用户不存在
+						if (serviceLogin.upstatus(request) == true) {
+							map.put("state", "登录成功");
+							map.put("status",1);
+						} else {
+							map.put("state", "服务忙，请过一段时间在登录");
+						}
 					}
+
 				}
 			} else {
 				map.put("state", "验证码错误");// 验证码错误
 			}
-
-		
 		}
 		return map;
+	
 	}
 }
+
+

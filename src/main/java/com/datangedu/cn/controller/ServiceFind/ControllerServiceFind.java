@@ -1,4 +1,4 @@
-package com.datangedu.cn.controller.CustomerFind;
+package com.datangedu.cn.controller.ServiceFind;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -15,21 +15,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.datangedu.cn.MD5.MD5;
-import com.datangedu.cn.Service.CustomerFind.CustomerFindServlet;
-import com.datangedu.cn.model.customers.Customers;
-import com.datangedu.cn.model.customers.CustomersExample;
+import com.datangedu.cn.Service.ServiceFind.ServiceFindServlet;
+import com.datangedu.cn.model.serviceprovider.Serviceprovider;
+import com.datangedu.cn.model.serviceprovider.ServiceproviderExample;
 
 @Controller
-@RequestMapping("/customer")
-public class ControllerCustomerFind {
+@RequestMapping("/service")
+public class ControllerServiceFind {
 	@Resource
-	CustomerFindServlet customerFind;
+	ServiceFindServlet serviceFind;
 	@ResponseBody
 	@RequestMapping(value = "/find", method = RequestMethod.POST)
 	public Map<String, Object> find(HttpServletRequest request)
 			throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		Map<String, Object> map = new HashMap<String, Object>();
 		MD5 md5 = new MD5();
+		Map<String, Object> map = new HashMap<String, Object>();
 		HttpSession session = request.getSession();
 		session.getAttribute("vimg");
 		String vimg = (String) session.getAttribute("code");
@@ -60,27 +60,30 @@ public class ControllerCustomerFind {
 				} // 电话非11位
 				else// 信息正确非空
 				{
-					if (customerFind.findphone(request) == true) {
+					if (serviceFind.findphone(request) == true) {
 						if (md5.EncoderByMd5(request.getParameter("newpassword"))
 								.equals(md5.EncoderByMd5(request.getParameter("againpassword")))) {
-							int state = customerFind.customerFind(request);
-							if(state == 1)
-							{map.put("state", "更改密码成功~");}
+							int state = serviceFind.serviceFind(request);
+							if(state ==1){
+								map.put("state", "更改密码成功");
+							}
 							else
-							{map.put("state", "更改密码失败~");}
+							{
+								map.put("state", "更改密码失败~");
+							}
 						} else {
 							map.put("state", "两次输入的密码不同~");// 两次输入的密码不同
 						}
 					} else {
-						map.put("state", "该用户未注册~");// 改该用户不存在
+						map.put("state", "该电话号已注册~");// 改该用户不存在
 					}
 				}
 			} else {
 				map.put("state", "验证码错误");// 验证码错误
 			}
 
-		
 		}
-		return map;
+	return map;
 	}
+
 }
