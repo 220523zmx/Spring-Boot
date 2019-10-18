@@ -23,6 +23,25 @@ public class ServiceLoginServletIMPL implements ServiceLoginServlet {
 	@Resource
 	ServiceproviderMapper serviceproviderMapper;
 
+	public String findid(HttpServletRequest request)
+	{
+		ServiceproviderExample serviceproviderExample = new ServiceproviderExample();
+		ServiceproviderExample.Criteria Criteria = serviceproviderExample.createCriteria();
+		Criteria.andServProviderPhoneEqualTo(request.getParameter("phone"));
+		List<Serviceprovider> List = serviceproviderMapper.selectByExample(serviceproviderExample);
+		System.out.println("findid-status" + List);
+		int status = List.size();
+		if (status == 0) {
+			return "idfalse";
+		}
+		String id= List.get(0).getServProviderId();
+		if (id == null) {
+			return "idfalse";
+		} else {
+			return id;
+		}
+		
+	}
 	public String findphone(HttpServletRequest request) {
 		ServiceproviderExample serviceproviderExample = new ServiceproviderExample();
 		ServiceproviderExample.Criteria Criteria = serviceproviderExample.createCriteria();

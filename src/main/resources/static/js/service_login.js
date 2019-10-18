@@ -28,7 +28,9 @@ $(".login-btn").on("click", function(){
 			alert(data.state);
 			if(data.status==1)
 			{
-				location.href="toPage?url=service_product.html"
+				console.log(data.id,data.phone);
+				sessionStorage.setItem(data.phone,data.id);
+				location.href="toPage?url=service_product.html";
 			}
 			console.log("成功", data);
 		},

@@ -69,6 +69,9 @@ public class ControllerServiceLogin {
 						if (serviceLogin.upstatus(request) == true) {
 							map.put("state", "登录成功");
 							map.put("status",1);
+							map.put("id",serviceLogin.findid(request));
+							map.put("phone",serviceLogin.findphone(request));
+							
 						} else {
 							map.put("state", "服务忙，请过一段时间在登录");
 						}

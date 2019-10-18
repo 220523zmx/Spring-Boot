@@ -41,6 +41,21 @@ public class CustomerLoginServletIMPL implements CustomerLoginServlet {
 			return phone;
 		}
 	}
+	
+	public String findid(HttpServletRequest request){
+		CustomersExample customersExample = new CustomersExample();
+		CustomersExample.Criteria Criteria = customersExample.createCriteria();
+		Criteria.andCustPhoneEqualTo(request.getParameter("phone"));
+		List<Customers> List = customersMapper.selectByExample(customersExample);
+		System.out.println("findphoone-status" + List);
+		String id = List.get(0).getCustId();
+		if (id.equals("")) {
+			return "passwordfalse";
+		} else {
+			return id;
+		}
+		
+	}
 
 	public String findpassword(HttpServletRequest request) {
 		CustomersExample customersExample = new CustomersExample();

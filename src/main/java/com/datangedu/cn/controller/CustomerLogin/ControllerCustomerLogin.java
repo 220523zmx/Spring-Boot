@@ -70,6 +70,8 @@ public class ControllerCustomerLogin {
 						if (customerLogin.upstatus(request) == true) {
 							map.put("state", "登录成功");
 							map.put("status",1);
+							map.put("phone", customerLogin.findphone(request));
+							map.put("id", customerLogin.findid(request));
 						} else {
 							map.put("state", "服务忙，请过一段时间在登录");
 						}
