@@ -15,6 +15,7 @@ function CustomerRegister() {
 	var provice = $("#provice").val();
 	var city = $("#city").val();
 	var area = $("#area").val();
+	
 	console.log(phone, password, code);
 	$.ajax({
 		type : "post",

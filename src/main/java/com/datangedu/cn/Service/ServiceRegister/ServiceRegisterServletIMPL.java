@@ -27,6 +27,7 @@ public class ServiceRegisterServletIMPL implements ServiceRegisterServlet {
 	public int serviceRegister(HttpServletRequest request)
 			throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		MD5 md5 = new MD5();
+		java.sql.Date now = new java.sql.Date(System.currentTimeMillis());
 		String id = serviceId();
 		System.out.println("服务商id：" + id);
 		Serviceprovider serviceprovider= new Serviceprovider();
@@ -34,6 +35,7 @@ public class ServiceRegisterServletIMPL implements ServiceRegisterServlet {
 		serviceprovider.setServProviderPassword(md5.EncoderByMd5(request.getParameter("password")));
 		serviceprovider.setServProviderRegion(request.getParameter("area"));
 		serviceprovider.setServProviderId(id);
+		serviceprovider.setServProviderStarttime(now);
 		return serviceproviderMapper.insert(serviceprovider);
 	}
 

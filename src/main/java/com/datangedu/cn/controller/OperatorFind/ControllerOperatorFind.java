@@ -1,4 +1,4 @@
-package com.datangedu.cn.controller.CustomerFind;
+package com.datangedu.cn.controller.OperatorFind;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -16,15 +16,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.datangedu.cn.MD5.MD5;
 import com.datangedu.cn.Service.CustomerFind.CustomerFindServlet;
-import com.datangedu.cn.model.customers.Customers;
-import com.datangedu.cn.model.customers.CustomersExample;
+import com.datangedu.cn.Service.OperatorFind.OperatorFindServlet;
 
 @Controller
-@RequestMapping("/customer")
-public class ControllerCustomerFind {
+@RequestMapping("/operator")
+public class ControllerOperatorFind {
 	@Resource
-	CustomerFindServlet customerFind;
-
+	OperatorFindServlet operatorFindServlet;
 	@ResponseBody
 	@RequestMapping(value = "/find", method = RequestMethod.POST)
 	public Map<String, Object> find(HttpServletRequest request)
@@ -61,15 +59,14 @@ public class ControllerCustomerFind {
 				} // 电话非11位
 				else// 信息正确非空
 				{
-					if (customerFind.findphone(request) == true) {
+					if (operatorFindServlet.findphone(request) == true) {
 						if (md5.EncoderByMd5(request.getParameter("newpassword"))
 								.equals(md5.EncoderByMd5(request.getParameter("againpassword")))) {
-							int state = customerFind.customerFind(request);
-							if (state == 1) {
-								map.put("state", "更改密码成功~");
-							} else {
-								map.put("state", "更改密码失败~");
-							}
+							int state = operatorFindServlet.operatorFind(request);
+							if(state == 1)
+							{map.put("state", "更改密码成功~");}
+							else
+							{map.put("state", "更改密码失败~");}
 						} else {
 							map.put("state", "两次输入的密码不同~");// 两次输入的密码不同
 						}
@@ -81,6 +78,7 @@ public class ControllerCustomerFind {
 				map.put("state", "验证码错误");// 验证码错误
 			}
 
+		
 		}
 		return map;
 	}
