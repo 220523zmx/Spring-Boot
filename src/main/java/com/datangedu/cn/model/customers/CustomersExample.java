@@ -245,76 +245,6 @@ public class CustomersExample {
             return (Criteria) this;
         }
 
-        public Criteria andCustPortraitIsNull() {
-            addCriterion("CUST_PORTRAIT is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCustPortraitIsNotNull() {
-            addCriterion("CUST_PORTRAIT is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCustPortraitEqualTo(String value) {
-            addCriterion("CUST_PORTRAIT =", value, "custPortrait");
-            return (Criteria) this;
-        }
-
-        public Criteria andCustPortraitNotEqualTo(String value) {
-            addCriterion("CUST_PORTRAIT <>", value, "custPortrait");
-            return (Criteria) this;
-        }
-
-        public Criteria andCustPortraitGreaterThan(String value) {
-            addCriterion("CUST_PORTRAIT >", value, "custPortrait");
-            return (Criteria) this;
-        }
-
-        public Criteria andCustPortraitGreaterThanOrEqualTo(String value) {
-            addCriterion("CUST_PORTRAIT >=", value, "custPortrait");
-            return (Criteria) this;
-        }
-
-        public Criteria andCustPortraitLessThan(String value) {
-            addCriterion("CUST_PORTRAIT <", value, "custPortrait");
-            return (Criteria) this;
-        }
-
-        public Criteria andCustPortraitLessThanOrEqualTo(String value) {
-            addCriterion("CUST_PORTRAIT <=", value, "custPortrait");
-            return (Criteria) this;
-        }
-
-        public Criteria andCustPortraitLike(String value) {
-            addCriterion("CUST_PORTRAIT like", value, "custPortrait");
-            return (Criteria) this;
-        }
-
-        public Criteria andCustPortraitNotLike(String value) {
-            addCriterion("CUST_PORTRAIT not like", value, "custPortrait");
-            return (Criteria) this;
-        }
-
-        public Criteria andCustPortraitIn(List<String> values) {
-            addCriterion("CUST_PORTRAIT in", values, "custPortrait");
-            return (Criteria) this;
-        }
-
-        public Criteria andCustPortraitNotIn(List<String> values) {
-            addCriterion("CUST_PORTRAIT not in", values, "custPortrait");
-            return (Criteria) this;
-        }
-
-        public Criteria andCustPortraitBetween(String value1, String value2) {
-            addCriterion("CUST_PORTRAIT between", value1, value2, "custPortrait");
-            return (Criteria) this;
-        }
-
-        public Criteria andCustPortraitNotBetween(String value1, String value2) {
-            addCriterion("CUST_PORTRAIT not between", value1, value2, "custPortrait");
-            return (Criteria) this;
-        }
-
         public Criteria andCustSexIsNull() {
             addCriterion("CUST_SEX is null");
             return (Criteria) this;
@@ -325,52 +255,62 @@ public class CustomersExample {
             return (Criteria) this;
         }
 
-        public Criteria andCustSexEqualTo(Integer value) {
+        public Criteria andCustSexEqualTo(String value) {
             addCriterion("CUST_SEX =", value, "custSex");
             return (Criteria) this;
         }
 
-        public Criteria andCustSexNotEqualTo(Integer value) {
+        public Criteria andCustSexNotEqualTo(String value) {
             addCriterion("CUST_SEX <>", value, "custSex");
             return (Criteria) this;
         }
 
-        public Criteria andCustSexGreaterThan(Integer value) {
+        public Criteria andCustSexGreaterThan(String value) {
             addCriterion("CUST_SEX >", value, "custSex");
             return (Criteria) this;
         }
 
-        public Criteria andCustSexGreaterThanOrEqualTo(Integer value) {
+        public Criteria andCustSexGreaterThanOrEqualTo(String value) {
             addCriterion("CUST_SEX >=", value, "custSex");
             return (Criteria) this;
         }
 
-        public Criteria andCustSexLessThan(Integer value) {
+        public Criteria andCustSexLessThan(String value) {
             addCriterion("CUST_SEX <", value, "custSex");
             return (Criteria) this;
         }
 
-        public Criteria andCustSexLessThanOrEqualTo(Integer value) {
+        public Criteria andCustSexLessThanOrEqualTo(String value) {
             addCriterion("CUST_SEX <=", value, "custSex");
             return (Criteria) this;
         }
 
-        public Criteria andCustSexIn(List<Integer> values) {
+        public Criteria andCustSexLike(String value) {
+            addCriterion("CUST_SEX like", value, "custSex");
+            return (Criteria) this;
+        }
+
+        public Criteria andCustSexNotLike(String value) {
+            addCriterion("CUST_SEX not like", value, "custSex");
+            return (Criteria) this;
+        }
+
+        public Criteria andCustSexIn(List<String> values) {
             addCriterion("CUST_SEX in", values, "custSex");
             return (Criteria) this;
         }
 
-        public Criteria andCustSexNotIn(List<Integer> values) {
+        public Criteria andCustSexNotIn(List<String> values) {
             addCriterion("CUST_SEX not in", values, "custSex");
             return (Criteria) this;
         }
 
-        public Criteria andCustSexBetween(Integer value1, Integer value2) {
+        public Criteria andCustSexBetween(String value1, String value2) {
             addCriterion("CUST_SEX between", value1, value2, "custSex");
             return (Criteria) this;
         }
 
-        public Criteria andCustSexNotBetween(Integer value1, Integer value2) {
+        public Criteria andCustSexNotBetween(String value1, String value2) {
             addCriterion("CUST_SEX not between", value1, value2, "custSex");
             return (Criteria) this;
         }

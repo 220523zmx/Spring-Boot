@@ -5,8 +5,6 @@ import java.util.Date;
 public class Serviceprovider {
     private String servProviderId;
 
-    private String servProviderImg;
-
     private String servProviderName;
 
     private String servProviderRegion;
@@ -35,20 +33,14 @@ public class Serviceprovider {
 
     private String servProviderBusinesslicense;
 
+    private byte[] servProviderImg;
+
     public String getServProviderId() {
         return servProviderId;
     }
 
     public void setServProviderId(String servProviderId) {
         this.servProviderId = servProviderId == null ? null : servProviderId.trim();
-    }
-
-    public String getServProviderImg() {
-        return servProviderImg;
-    }
-
-    public void setServProviderImg(String servProviderImg) {
-        this.servProviderImg = servProviderImg == null ? null : servProviderImg.trim();
     }
 
     public String getServProviderName() {
@@ -161,5 +153,13 @@ public class Serviceprovider {
 
     public void setServProviderBusinesslicense(String servProviderBusinesslicense) {
         this.servProviderBusinesslicense = servProviderBusinesslicense == null ? null : servProviderBusinesslicense.trim();
+    }
+
+    public byte[] getServProviderImg() {
+        return servProviderImg;
+    }
+
+    public void setServProviderImg(byte[] servProviderImg) {
+        this.servProviderImg = servProviderImg;
     }
 }

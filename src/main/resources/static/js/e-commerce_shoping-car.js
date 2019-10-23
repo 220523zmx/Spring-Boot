@@ -1,3 +1,13 @@
+$(function()
+		{
+			var user = sessionStorage.getItem("cusphone");
+			var txt = "";
+			txt += `<span >${user}</span>`;
+			$("#user").append(txt);
+	
+		})
+
+
 $(".search-product").on("click", function(){
     $(".search-product").addClass("font-aqua");
     $(".search-service").removeClass("font-aqua");

@@ -7,9 +7,7 @@ public class Customers {
 
     private String custName;
 
-    private String custPortrait;
-
-    private Integer custSex;
+    private String custSex;
 
     private String custPhone;
 
@@ -27,6 +25,8 @@ public class Customers {
 
     private String custPassword;
 
+    private byte[] custPortrait;
+
     public String getCustId() {
         return custId;
     }
@@ -43,20 +43,12 @@ public class Customers {
         this.custName = custName == null ? null : custName.trim();
     }
 
-    public String getCustPortrait() {
-        return custPortrait;
-    }
-
-    public void setCustPortrait(String custPortrait) {
-        this.custPortrait = custPortrait == null ? null : custPortrait.trim();
-    }
-
-    public Integer getCustSex() {
+    public String getCustSex() {
         return custSex;
     }
 
-    public void setCustSex(Integer custSex) {
-        this.custSex = custSex;
+    public void setCustSex(String custSex) {
+        this.custSex = custSex == null ? null : custSex.trim();
     }
 
     public String getCustPhone() {
@@ -121,5 +113,13 @@ public class Customers {
 
     public void setCustPassword(String custPassword) {
         this.custPassword = custPassword == null ? null : custPassword.trim();
+    }
+
+    public byte[] getCustPortrait() {
+        return custPortrait;
+    }
+
+    public void setCustPortrait(byte[] custPortrait) {
+        this.custPortrait = custPortrait;
     }
 }

@@ -1,3 +1,13 @@
+$(function()
+		{
+			var user = sessionStorage.getItem("cusphone");
+			var txt = "";
+			txt += `<span >${user}</span>`;
+			$("#user").append(txt);
+	
+		})
+
+
 $(".search-product").on("click", function () {
     $(".search-product").addClass("font-aqua");
     $(".search-service").removeClass("font-aqua");
@@ -33,3 +43,67 @@ $(".content-banner li").eq(1).on("click", function (event) {
     $(".change-password").show();
     $(".account-info").hide();
 })
+
+$(".cust_name").change(function() { 
+	
+	var str=$(".cust_name").val();
+	var reg=/^[\u4E00-\u9FA5]+$/;	
+    if (!reg.test(str)){
+        alert( "姓名中含有非法字符" );
+   
+    }
+	
+})
+$(".password").on("click",function ()
+	{
+	var oldpassword = $(".cust_password_old").val(); 
+	var newpassword = $(".cust_password_new").val();
+	var againpassword = $(".cust_password_again").val();
+	var phone = sessionStorage.getItem("cusphone");
+	console.log(oldpassword,newpassword,againpassword,phone);
+	$.ajax({
+		type : "post",
+		url : "/customer/password",
+		data : {
+			oldpassword:oldpassword,
+			newpassword:newpassword,
+			againpassword:againpassword,
+			phone:phone,
+			},
+			dataType : "json",
+			success : function(data) {
+				alert(data.state);
+				console.log("成功", data);
+			},
+			error : function(data) {
+				console.log("失败", data);
+			}
+		})
+	
+	
+	})
+$(".information").on("click",function ()
+	{
+	var sex = $('input[name="sex"]:checked').val(); 
+	var name = $(".cust_name").val();
+	var email = $(".cust_email").val();
+	var phone = sessionStorage.getItem("cusphone");
+	console.log(sex,name,email,phone);
+	$.ajax({
+		type : "post",
+		url : "/customer/information",
+		data : {
+			sex:sex,
+			name:name,
+			email:email,
+			phone:phone,
+			},
+			dataType : "json",
+			success : function(data) {
+				alert(data.state);
+				console.log("成功", data);
+			},
+			error : function(data) {
+				console.log("失败", data);}
+			})
+	})

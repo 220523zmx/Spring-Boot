@@ -16,7 +16,7 @@
 <body>
     <div class="headder-top">
         <div class="width1200 headder-top-content">
-            <div><span>{用户名}</span>欢饮来到信达！<span class="user-quit">[退出]</span></div>
+            <div><span id="user"></span>欢饮来到信达！<span class="user-quit">[退出]</span></div>
             <ul>
                 <li><a href="toPage?url=e-commerce_shoping-car.html"><i class="fa fa-shopping-cart fa-lg"></i>
                         购物车<span>1</span>件</a></li>
@@ -77,18 +77,18 @@
             <ul class="change-password">
                 <li>
                     <span>旧密码：</span>
-                    <input type="text" />
+                    <input class = "cust_password_old"  type="text" />
                 </li>
                 <li>
                     <span>新密码：</span>
-                    <input type="text" />
+                    <input class = "cust_password_new" type="text" />
                 </li>
                 <li>
                     <span>再次输入新密码：</span>
-                    <input type="text" />
+                    <input class = "cust_password_again" type="text" />
                 </li>
                 <li>
-                    <p class="save">保存</p>
+                    <p class="save password">保存</p>
                 </li>
             </ul>
             <ul class="account-info">
@@ -98,19 +98,19 @@
                 </li>
                 <li>
                     <span>性别：</span>
-                    <input class="radio" type="radio" name="sex" /> 男 
-                    <input class="radio" type="radio" name="sex" /> 女
+                    <input class="radio" type="radio" name="sex" value = "男"/> 男 
+                    <input class="radio" type="radio" name="sex" value = "女"/> 女
                 </li>
                 <li>
                     <span>姓名：</span>
-                    <input type="text" />
+                    <input class = "cust_name" type="text" />
                 </li>
                 <li>
                     <span>邮箱：</span>
-                    <input type="text" />
+                    <input class = "cust_email" type="text" />
                 </li>
                 <li>
-                    <p class="save">保存</p>
+                    <p class="save information">保存</p>
                 </li>
             </ul>
         </div>

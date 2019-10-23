@@ -9,8 +9,6 @@ public class Administrator {
 
     private String admiPassword;
 
-    private String admiPortrait;
-
     private String admiName;
 
     private String admiEmail;
@@ -18,6 +16,8 @@ public class Administrator {
     private Integer admiState;
 
     private Date admiCretime;
+
+    private byte[] admiPortrait;
 
     public String getAdmiId() {
         return admiId;
@@ -41,14 +41,6 @@ public class Administrator {
 
     public void setAdmiPassword(String admiPassword) {
         this.admiPassword = admiPassword == null ? null : admiPassword.trim();
-    }
-
-    public String getAdmiPortrait() {
-        return admiPortrait;
-    }
-
-    public void setAdmiPortrait(String admiPortrait) {
-        this.admiPortrait = admiPortrait == null ? null : admiPortrait.trim();
     }
 
     public String getAdmiName() {
@@ -81,5 +73,13 @@ public class Administrator {
 
     public void setAdmiCretime(Date admiCretime) {
         this.admiCretime = admiCretime;
+    }
+
+    public byte[] getAdmiPortrait() {
+        return admiPortrait;
+    }
+
+    public void setAdmiPortrait(byte[] admiPortrait) {
+        this.admiPortrait = admiPortrait;
     }
 }
