@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class OrderExample {
+public class AllorderExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public OrderExample() {
+    public AllorderExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -115,52 +115,62 @@ public class OrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andOrdeIdEqualTo(Integer value) {
+        public Criteria andOrdeIdEqualTo(String value) {
             addCriterion("ORDE_ID =", value, "ordeId");
             return (Criteria) this;
         }
 
-        public Criteria andOrdeIdNotEqualTo(Integer value) {
+        public Criteria andOrdeIdNotEqualTo(String value) {
             addCriterion("ORDE_ID <>", value, "ordeId");
             return (Criteria) this;
         }
 
-        public Criteria andOrdeIdGreaterThan(Integer value) {
+        public Criteria andOrdeIdGreaterThan(String value) {
             addCriterion("ORDE_ID >", value, "ordeId");
             return (Criteria) this;
         }
 
-        public Criteria andOrdeIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andOrdeIdGreaterThanOrEqualTo(String value) {
             addCriterion("ORDE_ID >=", value, "ordeId");
             return (Criteria) this;
         }
 
-        public Criteria andOrdeIdLessThan(Integer value) {
+        public Criteria andOrdeIdLessThan(String value) {
             addCriterion("ORDE_ID <", value, "ordeId");
             return (Criteria) this;
         }
 
-        public Criteria andOrdeIdLessThanOrEqualTo(Integer value) {
+        public Criteria andOrdeIdLessThanOrEqualTo(String value) {
             addCriterion("ORDE_ID <=", value, "ordeId");
             return (Criteria) this;
         }
 
-        public Criteria andOrdeIdIn(List<Integer> values) {
+        public Criteria andOrdeIdLike(String value) {
+            addCriterion("ORDE_ID like", value, "ordeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeIdNotLike(String value) {
+            addCriterion("ORDE_ID not like", value, "ordeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeIdIn(List<String> values) {
             addCriterion("ORDE_ID in", values, "ordeId");
             return (Criteria) this;
         }
 
-        public Criteria andOrdeIdNotIn(List<Integer> values) {
+        public Criteria andOrdeIdNotIn(List<String> values) {
             addCriterion("ORDE_ID not in", values, "ordeId");
             return (Criteria) this;
         }
 
-        public Criteria andOrdeIdBetween(Integer value1, Integer value2) {
+        public Criteria andOrdeIdBetween(String value1, String value2) {
             addCriterion("ORDE_ID between", value1, value2, "ordeId");
             return (Criteria) this;
         }
 
-        public Criteria andOrdeIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andOrdeIdNotBetween(String value1, String value2) {
             addCriterion("ORDE_ID not between", value1, value2, "ordeId");
             return (Criteria) this;
         }
@@ -742,6 +752,136 @@ public class OrderExample {
 
         public Criteria andOrdeEvaluationstatusNotBetween(Integer value1, Integer value2) {
             addCriterion("ORDE_EVALUATIONSTATUS not between", value1, value2, "ordeEvaluationstatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeNumIsNull() {
+            addCriterion("ORDE_NUM is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeNumIsNotNull() {
+            addCriterion("ORDE_NUM is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeNumEqualTo(Integer value) {
+            addCriterion("ORDE_NUM =", value, "ordeNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeNumNotEqualTo(Integer value) {
+            addCriterion("ORDE_NUM <>", value, "ordeNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeNumGreaterThan(Integer value) {
+            addCriterion("ORDE_NUM >", value, "ordeNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeNumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("ORDE_NUM >=", value, "ordeNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeNumLessThan(Integer value) {
+            addCriterion("ORDE_NUM <", value, "ordeNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeNumLessThanOrEqualTo(Integer value) {
+            addCriterion("ORDE_NUM <=", value, "ordeNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeNumIn(List<Integer> values) {
+            addCriterion("ORDE_NUM in", values, "ordeNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeNumNotIn(List<Integer> values) {
+            addCriterion("ORDE_NUM not in", values, "ordeNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeNumBetween(Integer value1, Integer value2) {
+            addCriterion("ORDE_NUM between", value1, value2, "ordeNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeNumNotBetween(Integer value1, Integer value2) {
+            addCriterion("ORDE_NUM not between", value1, value2, "ordeNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeProvidernameIsNull() {
+            addCriterion("ORDE_PROVIDERNAME is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeProvidernameIsNotNull() {
+            addCriterion("ORDE_PROVIDERNAME is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeProvidernameEqualTo(String value) {
+            addCriterion("ORDE_PROVIDERNAME =", value, "ordeProvidername");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeProvidernameNotEqualTo(String value) {
+            addCriterion("ORDE_PROVIDERNAME <>", value, "ordeProvidername");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeProvidernameGreaterThan(String value) {
+            addCriterion("ORDE_PROVIDERNAME >", value, "ordeProvidername");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeProvidernameGreaterThanOrEqualTo(String value) {
+            addCriterion("ORDE_PROVIDERNAME >=", value, "ordeProvidername");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeProvidernameLessThan(String value) {
+            addCriterion("ORDE_PROVIDERNAME <", value, "ordeProvidername");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeProvidernameLessThanOrEqualTo(String value) {
+            addCriterion("ORDE_PROVIDERNAME <=", value, "ordeProvidername");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeProvidernameLike(String value) {
+            addCriterion("ORDE_PROVIDERNAME like", value, "ordeProvidername");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeProvidernameNotLike(String value) {
+            addCriterion("ORDE_PROVIDERNAME not like", value, "ordeProvidername");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeProvidernameIn(List<String> values) {
+            addCriterion("ORDE_PROVIDERNAME in", values, "ordeProvidername");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeProvidernameNotIn(List<String> values) {
+            addCriterion("ORDE_PROVIDERNAME not in", values, "ordeProvidername");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeProvidernameBetween(String value1, String value2) {
+            addCriterion("ORDE_PROVIDERNAME between", value1, value2, "ordeProvidername");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdeProvidernameNotBetween(String value1, String value2) {
+            addCriterion("ORDE_PROVIDERNAME not between", value1, value2, "ordeProvidername");
             return (Criteria) this;
         }
     }

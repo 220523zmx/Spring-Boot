@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.datangedu.cn.dao.mapper.OrderMapper">
-  <resultMap id="BaseResultMap" type="com.datangedu.cn.model.order.Order">
-    <result column="ORDE_ID" jdbcType="INTEGER" property="ordeId" />
+<mapper namespace="com.datangedu.cn.dao.mapper.AllorderMapper">
+  <resultMap id="BaseResultMap" type="com.datangedu.cn.model.order.Allorder">
+    <result column="ORDE_ID" jdbcType="VARCHAR" property="ordeId" />
     <result column="ORDE_CUSTOMERID" jdbcType="VARCHAR" property="ordeCustomerid" />
     <result column="ORDE_PRODUCT" jdbcType="VARCHAR" property="ordeProduct" />
     <result column="ORDE_PRICE" jdbcType="INTEGER" property="ordePrice" />
@@ -12,6 +12,8 @@
     <result column="ORDE_STATE" jdbcType="INTEGER" property="ordeState" />
     <result column="ORDE_EVALUATION" jdbcType="VARCHAR" property="ordeEvaluation" />
     <result column="ORDE_EVALUATIONSTATUS" jdbcType="INTEGER" property="ordeEvaluationstatus" />
+    <result column="ORDE_NUM" jdbcType="INTEGER" property="ordeNum" />
+    <result column="ORDE_PROVIDERNAME" jdbcType="VARCHAR" property="ordeProvidername" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -73,15 +75,15 @@
   </sql>
   <sql id="Base_Column_List">
     ORDE_ID, ORDE_CUSTOMERID, ORDE_PRODUCT, ORDE_PRICE, ORDE_STARTTIME, ORDE_CUSTOMERNAME, 
-    ORDE_PAYWAY, ORDE_STATE, ORDE_EVALUATION, ORDE_EVALUATIONSTATUS
+    ORDE_PAYWAY, ORDE_STATE, ORDE_EVALUATION, ORDE_EVALUATIONSTATUS, ORDE_NUM, ORDE_PROVIDERNAME
   </sql>
-  <select id="selectByExample" parameterType="com.datangedu.cn.model.order.OrderExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.datangedu.cn.model.order.AllorderExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from order
+    from allorder
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -89,24 +91,26 @@
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.datangedu.cn.model.order.OrderExample">
-    delete from order
+  <delete id="deleteByExample" parameterType="com.datangedu.cn.model.order.AllorderExample">
+    delete from allorder
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.datangedu.cn.model.order.Order">
-    insert into order (ORDE_ID, ORDE_CUSTOMERID, ORDE_PRODUCT, 
+  <insert id="insert" parameterType="com.datangedu.cn.model.order.Allorder">
+    insert into allorder (ORDE_ID, ORDE_CUSTOMERID, ORDE_PRODUCT, 
       ORDE_PRICE, ORDE_STARTTIME, ORDE_CUSTOMERNAME, 
       ORDE_PAYWAY, ORDE_STATE, ORDE_EVALUATION, 
-      ORDE_EVALUATIONSTATUS)
-    values (#{ordeId,jdbcType=INTEGER}, #{ordeCustomerid,jdbcType=VARCHAR}, #{ordeProduct,jdbcType=VARCHAR}, 
+      ORDE_EVALUATIONSTATUS, ORDE_NUM, ORDE_PROVIDERNAME
+      )
+    values (#{ordeId,jdbcType=VARCHAR}, #{ordeCustomerid,jdbcType=VARCHAR}, #{ordeProduct,jdbcType=VARCHAR}, 
       #{ordePrice,jdbcType=INTEGER}, #{ordeStarttime,jdbcType=TIMESTAMP}, #{ordeCustomername,jdbcType=VARCHAR}, 
       #{ordePayway,jdbcType=INTEGER}, #{ordeState,jdbcType=INTEGER}, #{ordeEvaluation,jdbcType=VARCHAR}, 
-      #{ordeEvaluationstatus,jdbcType=INTEGER})
+      #{ordeEvaluationstatus,jdbcType=INTEGER}, #{ordeNum,jdbcType=INTEGER}, #{ordeProvidername,jdbcType=VARCHAR}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.datangedu.cn.model.order.Order">
-    insert into order
+  <insert id="insertSelective" parameterType="com.datangedu.cn.model.order.Allorder">
+    insert into allorder
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="ordeId != null">
         ORDE_ID,
@@ -138,10 +142,16 @@
       <if test="ordeEvaluationstatus != null">
         ORDE_EVALUATIONSTATUS,
       </if>
+      <if test="ordeNum != null">
+        ORDE_NUM,
+      </if>
+      <if test="ordeProvidername != null">
+        ORDE_PROVIDERNAME,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="ordeId != null">
-        #{ordeId,jdbcType=INTEGER},
+        #{ordeId,jdbcType=VARCHAR},
       </if>
       <if test="ordeCustomerid != null">
         #{ordeCustomerid,jdbcType=VARCHAR},
@@ -170,19 +180,25 @@
       <if test="ordeEvaluationstatus != null">
         #{ordeEvaluationstatus,jdbcType=INTEGER},
       </if>
+      <if test="ordeNum != null">
+        #{ordeNum,jdbcType=INTEGER},
+      </if>
+      <if test="ordeProvidername != null">
+        #{ordeProvidername,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.datangedu.cn.model.order.OrderExample" resultType="java.lang.Long">
-    select count(*) from order
+  <select id="countByExample" parameterType="com.datangedu.cn.model.order.AllorderExample" resultType="java.lang.Long">
+    select count(*) from allorder
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update order
+    update allorder
     <set>
       <if test="record.ordeId != null">
-        ORDE_ID = #{record.ordeId,jdbcType=INTEGER},
+        ORDE_ID = #{record.ordeId,jdbcType=VARCHAR},
       </if>
       <if test="record.ordeCustomerid != null">
         ORDE_CUSTOMERID = #{record.ordeCustomerid,jdbcType=VARCHAR},
@@ -211,14 +227,20 @@
       <if test="record.ordeEvaluationstatus != null">
         ORDE_EVALUATIONSTATUS = #{record.ordeEvaluationstatus,jdbcType=INTEGER},
       </if>
+      <if test="record.ordeNum != null">
+        ORDE_NUM = #{record.ordeNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.ordeProvidername != null">
+        ORDE_PROVIDERNAME = #{record.ordeProvidername,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update order
-    set ORDE_ID = #{record.ordeId,jdbcType=INTEGER},
+    update allorder
+    set ORDE_ID = #{record.ordeId,jdbcType=VARCHAR},
       ORDE_CUSTOMERID = #{record.ordeCustomerid,jdbcType=VARCHAR},
       ORDE_PRODUCT = #{record.ordeProduct,jdbcType=VARCHAR},
       ORDE_PRICE = #{record.ordePrice,jdbcType=INTEGER},
@@ -227,7 +249,9 @@
       ORDE_PAYWAY = #{record.ordePayway,jdbcType=INTEGER},
       ORDE_STATE = #{record.ordeState,jdbcType=INTEGER},
       ORDE_EVALUATION = #{record.ordeEvaluation,jdbcType=VARCHAR},
-      ORDE_EVALUATIONSTATUS = #{record.ordeEvaluationstatus,jdbcType=INTEGER}
+      ORDE_EVALUATIONSTATUS = #{record.ordeEvaluationstatus,jdbcType=INTEGER},
+      ORDE_NUM = #{record.ordeNum,jdbcType=INTEGER},
+      ORDE_PROVIDERNAME = #{record.ordeProvidername,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>

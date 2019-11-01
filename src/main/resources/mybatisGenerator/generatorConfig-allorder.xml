@@ -38,7 +38,7 @@
 			</javaClientGenerator>
 			
 		<!-- 配置表信息 -->   
-		<table tableName="order">
+		<table tableName="allorder">
 			<!-- <columnOverride column="???" property="???" /> -->
 		</table>
 	</context>

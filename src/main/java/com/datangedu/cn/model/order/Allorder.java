@@ -2,8 +2,8 @@ package com.datangedu.cn.model.order;
 
 import java.util.Date;
 
-public class Order {
-    private Integer ordeId;
+public class Allorder {
+    private String ordeId;
 
     private String ordeCustomerid;
 
@@ -23,12 +23,16 @@ public class Order {
 
     private Integer ordeEvaluationstatus;
 
-    public Integer getOrdeId() {
+    private Integer ordeNum;
+
+    private String ordeProvidername;
+
+    public String getOrdeId() {
         return ordeId;
     }
 
-    public void setOrdeId(Integer ordeId) {
-        this.ordeId = ordeId;
+    public void setOrdeId(String ordeId) {
+        this.ordeId = ordeId == null ? null : ordeId.trim();
     }
 
     public String getOrdeCustomerid() {
@@ -101,5 +105,21 @@ public class Order {
 
     public void setOrdeEvaluationstatus(Integer ordeEvaluationstatus) {
         this.ordeEvaluationstatus = ordeEvaluationstatus;
+    }
+
+    public Integer getOrdeNum() {
+        return ordeNum;
+    }
+
+    public void setOrdeNum(Integer ordeNum) {
+        this.ordeNum = ordeNum;
+    }
+
+    public String getOrdeProvidername() {
+        return ordeProvidername;
+    }
+
+    public void setOrdeProvidername(String ordeProvidername) {
+        this.ordeProvidername = ordeProvidername == null ? null : ordeProvidername.trim();
     }
 }

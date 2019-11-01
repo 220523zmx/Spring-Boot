@@ -43,12 +43,14 @@ $(function() {
 	initAddress();
 	// 更改省份后的操作
 	$("select[name='province']").change(function() {
+		$("#city").html("");
 		var provCode = $("select[name='province']").val();
 		console.log(provCode);
 		getCity(provCode);
 	});
 	  // 更改城市后的操作 
 	$("select[name='city']").change(function() { 
+		$("#area").html("");
 		var cityCode = $("select[name='city']").val(); 
 		console.log(cityCode);
 		getArea(cityCode); });
@@ -70,6 +72,7 @@ function initAddress() {
 			console.log("成功", data);
 			var provinceList = data.provinceList;
 			var txt = "";
+			
 			for (var i = 0; i < provinceList.length; i++) {
 				txt += `<option value = ${provinceList[i].code}>${provinceList[i].name}</option>`;
 			}
@@ -95,6 +98,8 @@ function getCity(provCode) {
 			console.log("成功", data);
 			var citysList = data.citysList;
 			var txt = "";
+			var a = -1;
+			txt+=`<option value = ${a}>-- 请选择市 --</option>`;
 			for (var i = 0; i < citysList.length; i++) {
 			txt += `<option value = ${citysList[i].code}>${citysList[i].name}</option>`;
 			}
@@ -119,7 +124,9 @@ function getArea(citysCode) {
 		success : function(data) {
 			console.log("成功", data);
 			var areaList = data.areaList;
+			var a = -1;
 			var txt = "";
+			txt+=`<option value = ${a}>-- 请选择县(区) --</option>`;
 			for (var i = 0; i < areaList.length; i++) {
 				txt += `<option value = ${areaList[i].code}>${areaList[i].name}</option>`;
 			}

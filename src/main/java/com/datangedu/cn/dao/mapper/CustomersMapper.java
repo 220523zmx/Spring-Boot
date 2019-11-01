@@ -1,10 +1,13 @@
 package com.datangedu.cn.dao.mapper;
 
-import com.datangedu.cn.model.customers.Customers;
-import com.datangedu.cn.model.customers.CustomersExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import com.datangedu.cn.model.customers.Customers;
+import com.datangedu.cn.model.customers.CustomersExample;
+@Mapper
 public interface CustomersMapper {
     long countByExample(CustomersExample example);
 

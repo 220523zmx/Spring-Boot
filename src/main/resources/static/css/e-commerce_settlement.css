@@ -50,7 +50,7 @@
     border-radius: 4px;
     position: absolute;
 }
-.radio1{
+/* .radio1{
     top: 212px;
     left: 20px;
 }
@@ -61,7 +61,7 @@
 .radio3{
     top: 303px;
     left: 230px;
-}
+} */
 
 .payment{
     float: right;

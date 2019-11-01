@@ -285,3 +285,11 @@
     margin-top: 5px;
     display: inherit;
 }
+.order-num>p {
+    width: 50px;
+    line-height: 20px;
+    border: 1px solid #4eb5ba;
+    border-radius: 3px;
+    margin: 15px 0 0 40px;
+    cursor: pointer;
+}
