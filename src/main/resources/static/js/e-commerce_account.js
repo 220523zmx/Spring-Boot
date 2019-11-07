@@ -1,9 +1,18 @@
 $(function() {
 	var user = sessionStorage.getItem("cusphone");
+	
 	var txt = "";
 	txt += `<span >${user}</span>`;
 	$("#user").append(txt);
+	var txt1 =`<input  name="id" type="hidden" value = "${user}">`;
+	$(".imgto").append(txt1);
+	var id = sessionStorage.getItem("cusid");
+	var txt2 =`
 
+        <p>${user}</p>`;
+	$(".userinfo").append(txt2);
+	
+	
 })
 
 $(".search-product").on("click", function() {
@@ -102,4 +111,13 @@ $(".information").on("click", function() {
 			console.log("失败", data);
 		}
 	})
+})
+function defaultImg(img){
+		img.src="/images/user-lg.png";
+	}
+
+$(function(){
+	var id = sessionStorage.getItem("cusid");
+	
+$(".imgshow").attr("src","/customer/imgshow?id="+id);
 })

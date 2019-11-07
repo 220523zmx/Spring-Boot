@@ -22,10 +22,16 @@ public class CustomerAccountServletIMPL implements CustomerAccountServlet {
 	CustomersMapper customersMapper;
 
 	public int Information(HttpServletRequest request) {
-		Customers customers = new Customers();
-		customers.setCustName(request.getParameter("name"));
-		customers.setCustEmail(request.getParameter("email"));
-		customers.setCustSex(request.getParameter("sex"));
+		Customers customers = new Customers();	
+		if(request.getParameter("name").equals("")==false){
+			customers.setCustName(request.getParameter("name"));
+		}
+		if(request.getParameter("email").equals("")==false){
+			customers.setCustEmail(request.getParameter("email"));
+		}
+		if(request.getParameter("sex").equals("")==false){
+			customers.setCustSex(request.getParameter("sex"));
+		}
 		CustomersExample customersExample = new CustomersExample();
 		CustomersExample.Criteria criteria = customersExample.createCriteria();
 		criteria.andCustPhoneEqualTo(request.getParameter("phone"));
@@ -59,4 +65,16 @@ public class CustomerAccountServletIMPL implements CustomerAccountServlet {
 			return password;
 		}
 	}
+	public void saveUserImg(Customers costomer) throws Exception {
+		int i = customersMapper.saveCuImg(costomer);
+		if(i!=1) {
+			throw new Exception("更新用户头像失败");
+		}
+	}
+
+	@Override
+	public Customers getUserInfo(String id) {
+		return customersMapper.selectByPrimaryKey(id);
+	}
+
 }

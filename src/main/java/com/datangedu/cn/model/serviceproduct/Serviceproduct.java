@@ -7,8 +7,6 @@ public class Serviceproduct {
 
     private String servProviderid;
 
-    private String servProductimg;
-
     private String servProductname;
 
     private String servInstructions;
@@ -27,6 +25,8 @@ public class Serviceproduct {
 
     private Integer servNecessary;
 
+    private byte[] servProductimg;
+
     public String getServProductid() {
         return servProductid;
     }
@@ -41,14 +41,6 @@ public class Serviceproduct {
 
     public void setServProviderid(String servProviderid) {
         this.servProviderid = servProviderid == null ? null : servProviderid.trim();
-    }
-
-    public String getServProductimg() {
-        return servProductimg;
-    }
-
-    public void setServProductimg(String servProductimg) {
-        this.servProductimg = servProductimg == null ? null : servProductimg.trim();
     }
 
     public String getServProductname() {
@@ -121,5 +113,13 @@ public class Serviceproduct {
 
     public void setServNecessary(Integer servNecessary) {
         this.servNecessary = servNecessary;
+    }
+
+    public byte[] getServProductimg() {
+        return servProductimg;
+    }
+
+    public void setServProductimg(byte[] servProductimg) {
+        this.servProductimg = servProductimg;
     }
 }

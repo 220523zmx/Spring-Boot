@@ -13,7 +13,7 @@ function productlist(data)
 		var providerid = productlist[i].servProviderid;
 		txt +=`
 			<div class="article">
-				<img src="" alt="图片" />
+				<img src="/customer/proimgshow?id=${productlist[i].servProductid}" alt="图片" />
 				<ul class="article-info" value = "${productlist[i].servProductid}">
 					<li>${productlist[i].servProductname}</li>
 					<li>${productlist[i].servInstructions}</li>
@@ -80,8 +80,8 @@ $(function(){
 						}
 					})
 				}		
-			});
-});
+			})
+})
 $(".nav-active").on("click",function(){
 	$.ajax({
 		type : "post",
@@ -101,10 +101,12 @@ $(".nav-active").on("click",function(){
 $(".search-product").on("click", function(){
     $(".search-product").addClass("font-aqua");
     $(".search-service").removeClass("font-aqua");
+    sessionStorage.setItem("branch","1");
 })
 $(".search-service").on("click", function(){
     $(".search-service").addClass("font-aqua");
     $(".search-product").removeClass("font-aqua");
+    sessionStorage.setItem("branch","2");
 })
 
 $(".banner a").on("click", function(event){
@@ -169,5 +171,38 @@ $.ajax({
 })
 	
 }
+
+$(function(){
+	var id = sessionStorage.getItem("cusid");
+
+	$(".imgshow").attr("src","/customer/imgshow?id="+id);
+})
+	
+$(".search-btn").on("click",function(){
+	var branch = sessionStorage.getItem("branch");
+	var likename = $(".likename").val();
+	console.log(branch,likename);
+	$.ajax({
+		type : "post",
+		url : "/customer/pro_like",
+		data:{
+			branch:branch,
+			likename:likename,
+		},
+		dataType : "json",
+		success : function(data) {
+			console.log("成功",data);
+			if(data.status==1)
+			{
+				alert(data.state);
+			}else{
+				productlist(data);
+			}
+		},
+		error : function(data) {
+			console.log("失败",data);
+		}
+})
+})
 
 

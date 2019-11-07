@@ -6,11 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Document</title>
-<link rel="stylesheet" href="./css/public.css">
-<link rel="stylesheet" href="./css/font-awesome.min.css">
-<link rel="stylesheet" href="./css/e-commerce_order.css">
+<link rel="stylesheet" href="/css/public.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/e-commerce_order.css">
 
-<script src="./js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.4.1.min.js"></script>
 </head>
 
 <body>
@@ -30,7 +30,7 @@
 		</div>
 	</div>
 	<div class="logo-search width1200">
-		<img class="logo" src="./images/logo-blue.png" />
+		<img class="logo" src="/images/logo-blue.png" />
 		<ul class="search">
 			<li><span class="search-product font-aqua">产品</span>丨 <span
 				class="search-service">服务商</span></li>
@@ -39,7 +39,7 @@
 			<li>热门服务：<span>社保开户</span> <span>公司注册</span>
 			</li>
 		</ul>
-		<img class="tel" src="./images/xinda-tel.png" alt="">
+		<img class="tel" src="/images/xinda-tel.png" alt="">
 	</div>
 	<ul class="banner width1200">
 		<li><a href="toPage?url=e-commerce_product.html" class="border-b">全部产品</a></li>
@@ -53,8 +53,7 @@
 	<div class="content width1200">
 		<div class="content-left">
 			<div class="userinfo">
-				<img src="./images/user-lg.png" alt="">
-				<p>18812345678</p>
+				<img class = "imgshow" src = "/images/user-lg.png" onerror="defaultImg(this)"/>
 			</div>
 			<ul class="user-action">
 				<li><a class="bg-gray" href="toPage?url=e-commerce_order.html"><i
@@ -70,10 +69,10 @@
 			<p class="product_num font-aqua">订单详情</p>
 			<hr color="#ededed" size="1">
 			<ul class="order-search">
-				<li><span>订单号：</span> <input type="text" placeholder="请输入订单号搜索" />
-					<span>搜索</span></li>
-				<li><span>创建时间：</span> <input type="date" value=""> - <input
-					type="date" value=""></li>
+				<li><span>订单号：</span> <input class = "likeid" type="text" placeholder="请输入订单号搜索" />
+					<span class = "findlikeid">搜索</span></li>
+				<li><span>创建时间：</span> <input name = "starttime" class="starttime" type="date" value=""> - <input
+					name = "endtime" class="endtime" type="date" value=""></li>
 			</ul>
 			<ul class="order-title">
 				<li>商品名称</li>
@@ -89,7 +88,7 @@
 		</div>
 	</div>
 
-	<script src="./js/e-commerce_order.js"></script>
+	<script src="/js/e-commerce_order.js"></script>
 </body>
 
 </html>

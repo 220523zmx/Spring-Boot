@@ -374,4 +374,8 @@
       CUST_PASSWORD = #{custPassword,jdbcType=VARCHAR}
     where CUST_ID = #{custId,jdbcType=VARCHAR}
   </update>
+  <update id="saveCuImg" parameterType="com.datangedu.cn.model.customers.Customers">
+    update customers set CUST_PORTRAIT = #{custPortrait} where CUST_PHONE = #{custPhone}
+</update>
+  
 </mapper>
