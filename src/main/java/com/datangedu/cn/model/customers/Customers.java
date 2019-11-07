@@ -7,9 +7,13 @@ public class Customers {
 
     private String custName;
 
+<<<<<<< HEAD
     private String custPortrait;
 
     private Integer custSex;
+=======
+    private String custSex;
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
 
     private String custPhone;
 
@@ -27,6 +31,11 @@ public class Customers {
 
     private String custPassword;
 
+<<<<<<< HEAD
+=======
+    private byte[] custPortrait;
+
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
     public String getCustId() {
         return custId;
     }
@@ -43,6 +52,7 @@ public class Customers {
         this.custName = custName == null ? null : custName.trim();
     }
 
+<<<<<<< HEAD
     public String getCustPortrait() {
         return custPortrait;
     }
@@ -57,6 +67,14 @@ public class Customers {
 
     public void setCustSex(Integer custSex) {
         this.custSex = custSex;
+=======
+    public String getCustSex() {
+        return custSex;
+    }
+
+    public void setCustSex(String custSex) {
+        this.custSex = custSex == null ? null : custSex.trim();
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
     }
 
     public String getCustPhone() {
@@ -122,4 +140,15 @@ public class Customers {
     public void setCustPassword(String custPassword) {
         this.custPassword = custPassword == null ? null : custPassword.trim();
     }
+<<<<<<< HEAD
+=======
+
+    public byte[] getCustPortrait() {
+        return custPortrait;
+    }
+
+    public void setCustPortrait(byte[] custPortrait) {
+        this.custPortrait = custPortrait;
+    }
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
 }

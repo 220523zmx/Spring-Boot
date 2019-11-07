@@ -22,6 +22,7 @@ $(".service-order").on("click", function(){
     $(".service-order").addClass("border-red");
     $(".business-order").removeClass("border-red");
     $(".main-top li").eq(3).text("服务商用户");
+<<<<<<< HEAD
 })
 
 function getUserInfo(){
@@ -100,3 +101,6 @@ function delUser(admiId){
 		    // jQuery自运行函数，页面加载就调用的函数
 	    })
 	    
+=======
+})
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6

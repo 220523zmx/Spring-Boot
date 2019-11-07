@@ -245,6 +245,7 @@ public class ServiceproductExample {
             return (Criteria) this;
         }
 
+<<<<<<< HEAD
         public Criteria andServProductimgIsNull() {
             addCriterion("SERV_PRODUCTIMG is null");
             return (Criteria) this;
@@ -315,6 +316,8 @@ public class ServiceproductExample {
             return (Criteria) this;
         }
 
+=======
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
         public Criteria andServProductnameIsNull() {
             addCriterion("SERV_PRODUCTNAME is null");
             return (Criteria) this;

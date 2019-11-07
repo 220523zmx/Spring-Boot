@@ -284,4 +284,20 @@
     cursor: pointer;
     margin-top: 5px;
     display: inherit;
+<<<<<<< HEAD
+=======
+}
+.order-num>p {
+    width: 50px;
+    line-height: 20px;
+    border: 1px solid #4eb5ba;
+    border-radius: 3px;
+    margin: 15px 0 0 40px;
+    cursor: pointer;
+}
+img{
+	width: 95px;
+    height: 95px;
+	
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
 }

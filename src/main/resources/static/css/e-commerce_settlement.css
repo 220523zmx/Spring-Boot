@@ -50,7 +50,11 @@
     border-radius: 4px;
     position: absolute;
 }
+<<<<<<< HEAD
 .radio1{
+=======
+/* .radio1{
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
     top: 212px;
     left: 20px;
 }
@@ -61,7 +65,11 @@
 .radio3{
     top: 303px;
     left: 230px;
+<<<<<<< HEAD
 }
+=======
+} */
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
 
 .payment{
     float: right;

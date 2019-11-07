@@ -11,9 +11,12 @@ public class AdministratorExample {
 
     protected List<Criteria> oredCriteria;
 
+<<<<<<< HEAD
     
     
     
+=======
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
     public AdministratorExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
@@ -65,9 +68,12 @@ public class AdministratorExample {
         oredCriteria.clear();
         orderByClause = null;
         distinct = false;
+<<<<<<< HEAD
         likeName = null;
         pageSize = 1;
         pageNum = 20;
+=======
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
     }
 
     protected abstract static class GeneratedCriteria {
@@ -321,6 +327,7 @@ public class AdministratorExample {
             return (Criteria) this;
         }
 
+<<<<<<< HEAD
         public Criteria andAdmiPortraitIsNull() {
             addCriterion("ADMI_PORTRAIT is null");
             return (Criteria) this;
@@ -391,6 +398,8 @@ public class AdministratorExample {
             return (Criteria) this;
         }
 
+=======
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
         public Criteria andAdmiNameIsNull() {
             addCriterion("ADMI_NAME is null");
             return (Criteria) this;
@@ -744,6 +753,7 @@ public class AdministratorExample {
             this(condition, value, secondValue, null);
         }
     }
+<<<<<<< HEAD
     
     
 
@@ -779,4 +789,6 @@ public class AdministratorExample {
 		this.likeName = likeName;
 	}
 
+=======
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
 }

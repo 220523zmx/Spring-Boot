@@ -2,15 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.datangedu.cn.dao.mapper.AdministratorMapper">
   <resultMap id="BaseResultMap" type="com.datangedu.cn.model.administrator.Administrator">
+<<<<<<< HEAD
     <result column="ADMI_ID" jdbcType="VARCHAR" property="admiId" />
     <result column="ADMI_PHONE" jdbcType="VARCHAR" property="admiPhone" />
     <result column="ADMI_PASSWORD" jdbcType="VARCHAR" property="admiPassword" />
     <result column="ADMI_PORTRAIT" jdbcType="VARCHAR" property="admiPortrait" />
+=======
+    <id column="ADMI_ID" jdbcType="VARCHAR" property="admiId" />
+    <result column="ADMI_PHONE" jdbcType="VARCHAR" property="admiPhone" />
+    <result column="ADMI_PASSWORD" jdbcType="VARCHAR" property="admiPassword" />
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
     <result column="ADMI_NAME" jdbcType="VARCHAR" property="admiName" />
     <result column="ADMI_EMAIL" jdbcType="VARCHAR" property="admiEmail" />
     <result column="ADMI_STATE" jdbcType="INTEGER" property="admiState" />
     <result column="ADMI_CRETIME" jdbcType="TIMESTAMP" property="admiCretime" />
   </resultMap>
+<<<<<<< HEAD
+=======
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.datangedu.cn.model.administrator.Administrator">
+    <result column="ADMI_PORTRAIT" jdbcType="LONGVARBINARY" property="admiPortrait" />
+  </resultMap>
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -70,6 +82,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
+<<<<<<< HEAD
     ADMI_ID, ADMI_PHONE, ADMI_PASSWORD, ADMI_PORTRAIT, ADMI_NAME, ADMI_EMAIL, ADMI_STATE, 
     ADMI_CRETIME
   </sql>
@@ -83,6 +96,31 @@
 
   <select id="selectByExample" parameterType="com.datangedu.cn.model.administrator.AdministratorExample" resultMap="BaseResultMap">
      SELECT  
+=======
+    ADMI_ID, ADMI_PHONE, ADMI_PASSWORD, ADMI_NAME, ADMI_EMAIL, ADMI_STATE, ADMI_CRETIME
+  </sql>
+  <sql id="Blob_Column_List">
+    ADMI_PORTRAIT
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.datangedu.cn.model.administrator.AdministratorExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from administrator
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.datangedu.cn.model.administrator.AdministratorExample" resultMap="BaseResultMap">
+    select
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
     <if test="distinct">
       distinct
     </if>
@@ -94,12 +132,28 @@
     <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
+<<<<<<< HEAD
     <if test="pageSize >=0">
     limit ${pageSize},${pageNum}
     </if>
   </select>
   
   
+=======
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from administrator
+    where ADMI_ID = #{admiId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from administrator
+    where ADMI_ID = #{admiId,jdbcType=VARCHAR}
+  </delete>
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
   <delete id="deleteByExample" parameterType="com.datangedu.cn.model.administrator.AdministratorExample">
     delete from administrator
     <if test="_parameter != null">
@@ -108,11 +162,19 @@
   </delete>
   <insert id="insert" parameterType="com.datangedu.cn.model.administrator.Administrator">
     insert into administrator (ADMI_ID, ADMI_PHONE, ADMI_PASSWORD, 
+<<<<<<< HEAD
       ADMI_PORTRAIT, ADMI_NAME, ADMI_EMAIL, 
       ADMI_STATE, ADMI_CRETIME)
     values (#{admiId,jdbcType=VARCHAR}, #{admiPhone,jdbcType=VARCHAR}, #{admiPassword,jdbcType=VARCHAR}, 
       #{admiPortrait,jdbcType=VARCHAR}, #{admiName,jdbcType=VARCHAR}, #{admiEmail,jdbcType=VARCHAR}, 
       #{admiState,jdbcType=INTEGER}, #{admiCretime,jdbcType=TIMESTAMP})
+=======
+      ADMI_NAME, ADMI_EMAIL, ADMI_STATE, 
+      ADMI_CRETIME, ADMI_PORTRAIT)
+    values (#{admiId,jdbcType=VARCHAR}, #{admiPhone,jdbcType=VARCHAR}, #{admiPassword,jdbcType=VARCHAR}, 
+      #{admiName,jdbcType=VARCHAR}, #{admiEmail,jdbcType=VARCHAR}, #{admiState,jdbcType=INTEGER}, 
+      #{admiCretime,jdbcType=TIMESTAMP}, #{admiPortrait,jdbcType=LONGVARBINARY})
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
   </insert>
   <insert id="insertSelective" parameterType="com.datangedu.cn.model.administrator.Administrator">
     insert into administrator
@@ -126,9 +188,12 @@
       <if test="admiPassword != null">
         ADMI_PASSWORD,
       </if>
+<<<<<<< HEAD
       <if test="admiPortrait != null">
         ADMI_PORTRAIT,
       </if>
+=======
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
       <if test="admiName != null">
         ADMI_NAME,
       </if>
@@ -141,6 +206,12 @@
       <if test="admiCretime != null">
         ADMI_CRETIME,
       </if>
+<<<<<<< HEAD
+=======
+      <if test="admiPortrait != null">
+        ADMI_PORTRAIT,
+      </if>
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="admiId != null">
@@ -152,9 +223,12 @@
       <if test="admiPassword != null">
         #{admiPassword,jdbcType=VARCHAR},
       </if>
+<<<<<<< HEAD
       <if test="admiPortrait != null">
         #{admiPortrait,jdbcType=VARCHAR},
       </if>
+=======
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
       <if test="admiName != null">
         #{admiName,jdbcType=VARCHAR},
       </if>
@@ -167,6 +241,12 @@
       <if test="admiCretime != null">
         #{admiCretime,jdbcType=TIMESTAMP},
       </if>
+<<<<<<< HEAD
+=======
+      <if test="admiPortrait != null">
+        #{admiPortrait,jdbcType=LONGVARBINARY},
+      </if>
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.datangedu.cn.model.administrator.AdministratorExample" resultType="java.lang.Long">
@@ -187,9 +267,12 @@
       <if test="record.admiPassword != null">
         ADMI_PASSWORD = #{record.admiPassword,jdbcType=VARCHAR},
       </if>
+<<<<<<< HEAD
       <if test="record.admiPortrait != null">
         ADMI_PORTRAIT = #{record.admiPortrait,jdbcType=VARCHAR},
       </if>
+=======
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
       <if test="record.admiName != null">
         ADMI_NAME = #{record.admiName,jdbcType=VARCHAR},
       </if>
@@ -202,17 +285,43 @@
       <if test="record.admiCretime != null">
         ADMI_CRETIME = #{record.admiCretime,jdbcType=TIMESTAMP},
       </if>
+<<<<<<< HEAD
+=======
+      <if test="record.admiPortrait != null">
+        ADMI_PORTRAIT = #{record.admiPortrait,jdbcType=LONGVARBINARY},
+      </if>
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
+<<<<<<< HEAD
+=======
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update administrator
+    set ADMI_ID = #{record.admiId,jdbcType=VARCHAR},
+      ADMI_PHONE = #{record.admiPhone,jdbcType=VARCHAR},
+      ADMI_PASSWORD = #{record.admiPassword,jdbcType=VARCHAR},
+      ADMI_NAME = #{record.admiName,jdbcType=VARCHAR},
+      ADMI_EMAIL = #{record.admiEmail,jdbcType=VARCHAR},
+      ADMI_STATE = #{record.admiState,jdbcType=INTEGER},
+      ADMI_CRETIME = #{record.admiCretime,jdbcType=TIMESTAMP},
+      ADMI_PORTRAIT = #{record.admiPortrait,jdbcType=LONGVARBINARY}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
   <update id="updateByExample" parameterType="map">
     update administrator
     set ADMI_ID = #{record.admiId,jdbcType=VARCHAR},
       ADMI_PHONE = #{record.admiPhone,jdbcType=VARCHAR},
       ADMI_PASSWORD = #{record.admiPassword,jdbcType=VARCHAR},
+<<<<<<< HEAD
       ADMI_PORTRAIT = #{record.admiPortrait,jdbcType=VARCHAR},
+=======
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
       ADMI_NAME = #{record.admiName,jdbcType=VARCHAR},
       ADMI_EMAIL = #{record.admiEmail,jdbcType=VARCHAR},
       ADMI_STATE = #{record.admiState,jdbcType=INTEGER},
@@ -221,4 +330,55 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
+<<<<<<< HEAD
+=======
+  <update id="updateByPrimaryKeySelective" parameterType="com.datangedu.cn.model.administrator.Administrator">
+    update administrator
+    <set>
+      <if test="admiPhone != null">
+        ADMI_PHONE = #{admiPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="admiPassword != null">
+        ADMI_PASSWORD = #{admiPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="admiName != null">
+        ADMI_NAME = #{admiName,jdbcType=VARCHAR},
+      </if>
+      <if test="admiEmail != null">
+        ADMI_EMAIL = #{admiEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="admiState != null">
+        ADMI_STATE = #{admiState,jdbcType=INTEGER},
+      </if>
+      <if test="admiCretime != null">
+        ADMI_CRETIME = #{admiCretime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="admiPortrait != null">
+        ADMI_PORTRAIT = #{admiPortrait,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    where ADMI_ID = #{admiId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.datangedu.cn.model.administrator.Administrator">
+    update administrator
+    set ADMI_PHONE = #{admiPhone,jdbcType=VARCHAR},
+      ADMI_PASSWORD = #{admiPassword,jdbcType=VARCHAR},
+      ADMI_NAME = #{admiName,jdbcType=VARCHAR},
+      ADMI_EMAIL = #{admiEmail,jdbcType=VARCHAR},
+      ADMI_STATE = #{admiState,jdbcType=INTEGER},
+      ADMI_CRETIME = #{admiCretime,jdbcType=TIMESTAMP},
+      ADMI_PORTRAIT = #{admiPortrait,jdbcType=LONGVARBINARY}
+    where ADMI_ID = #{admiId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.datangedu.cn.model.administrator.Administrator">
+    update administrator
+    set ADMI_PHONE = #{admiPhone,jdbcType=VARCHAR},
+      ADMI_PASSWORD = #{admiPassword,jdbcType=VARCHAR},
+      ADMI_NAME = #{admiName,jdbcType=VARCHAR},
+      ADMI_EMAIL = #{admiEmail,jdbcType=VARCHAR},
+      ADMI_STATE = #{admiState,jdbcType=INTEGER},
+      ADMI_CRETIME = #{admiCretime,jdbcType=TIMESTAMP}
+    where ADMI_ID = #{admiId,jdbcType=VARCHAR}
+  </update>
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
 </mapper>

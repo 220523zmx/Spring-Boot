@@ -7,8 +7,11 @@ public class Serviceproduct {
 
     private String servProviderid;
 
+<<<<<<< HEAD
     private String servProductimg;
 
+=======
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
     private String servProductname;
 
     private String servInstructions;
@@ -27,6 +30,11 @@ public class Serviceproduct {
 
     private Integer servNecessary;
 
+<<<<<<< HEAD
+=======
+    private byte[] servProductimg;
+
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
     public String getServProductid() {
         return servProductid;
     }
@@ -43,6 +51,7 @@ public class Serviceproduct {
         this.servProviderid = servProviderid == null ? null : servProviderid.trim();
     }
 
+<<<<<<< HEAD
     public String getServProductimg() {
         return servProductimg;
     }
@@ -51,6 +60,8 @@ public class Serviceproduct {
         this.servProductimg = servProductimg == null ? null : servProductimg.trim();
     }
 
+=======
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
     public String getServProductname() {
         return servProductname;
     }
@@ -122,4 +133,15 @@ public class Serviceproduct {
     public void setServNecessary(Integer servNecessary) {
         this.servNecessary = servNecessary;
     }
+<<<<<<< HEAD
+=======
+
+    public byte[] getServProductimg() {
+        return servProductimg;
+    }
+
+    public void setServProductimg(byte[] servProductimg) {
+        this.servProductimg = servProductimg;
+    }
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
 }

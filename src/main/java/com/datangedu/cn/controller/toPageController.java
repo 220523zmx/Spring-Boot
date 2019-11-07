@@ -1,15 +1,19 @@
 package com.datangedu.cn.controller;
 
+<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+=======
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.datangedu.cn.model.administrator.Administrator;
@@ -17,12 +21,17 @@ import com.datangedu.cn.model.serviceadministrator.AdministratorService;
 
 @Controller
 //@RequestMapping("/sysuser")
+=======
+
+@Controller
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
 public class toPageController {
 	 @RequestMapping(value = "/toPage",method = RequestMethod.GET)
 	   public String toPage(HttpServletRequest request){
 	       String url = request.getParameter("url");
 	       return url;
 	   }
+<<<<<<< HEAD
 	 
 	 
 	 @Resource
@@ -65,4 +74,6 @@ public class toPageController {
 		}
 		
 		
+=======
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
 }

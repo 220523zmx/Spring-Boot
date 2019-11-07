@@ -175,6 +175,7 @@ public class ServiceproviderExample {
             return (Criteria) this;
         }
 
+<<<<<<< HEAD
         public Criteria andServProviderImgIsNull() {
             addCriterion("SERV_PROVIDER_IMG is null");
             return (Criteria) this;
@@ -245,6 +246,8 @@ public class ServiceproviderExample {
             return (Criteria) this;
         }
 
+=======
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
         public Criteria andServProviderNameIsNull() {
             addCriterion("SERV_PROVIDER_NAME is null");
             return (Criteria) this;

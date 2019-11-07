@@ -2,6 +2,11 @@ package com.datangedu.cn.Service.CustomerRegister;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+<<<<<<< HEAD
+=======
+import java.text.SimpleDateFormat;
+import java.util.Date;
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +28,7 @@ public class CustomerRegisterServeltIMPL implements CustomerRegisterServlet {
 	ServletRandom servletRandom;
 
 	@Override
+<<<<<<< HEAD
 	public int customerRegister(HttpServletRequest request)
 			throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		MD5 md5 = new MD5();
@@ -80,6 +86,22 @@ public class CustomerRegisterServeltIMPL implements CustomerRegisterServlet {
 				return 11;// 验证码错误
 			}
 		}
+=======
+	public int customerInsert(HttpServletRequest request)
+			throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		MD5 md5 = new MD5();
+		java.sql.Date now = new java.sql.Date(System.currentTimeMillis());
+		String id = customerId();
+		System.out.println("顾客id：" + id);
+		Customers customers = new Customers();
+		customers.setCustPhone(request.getParameter("phone"));
+		customers.setCustPassword(md5.EncoderByMd5(request.getParameter("password")));				
+		customers.setCustRegion(request.getParameter("area"));
+		customers.setCustId(id);
+		customers.setCustStarttime(now);
+		return customersMapper.insert(customers);
+				
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
 
 	}
 
@@ -102,7 +124,11 @@ public class CustomerRegisterServeltIMPL implements CustomerRegisterServlet {
 		} while (i == false);
 		return "false";
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
 	public boolean findphone(HttpServletRequest request) {
 		CustomersExample customersExample = new CustomersExample();
 		CustomersExample.Criteria criteria = customersExample.createCriteria();

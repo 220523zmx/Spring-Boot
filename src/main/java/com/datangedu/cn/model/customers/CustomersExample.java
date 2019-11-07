@@ -245,6 +245,7 @@ public class CustomersExample {
             return (Criteria) this;
         }
 
+<<<<<<< HEAD
         public Criteria andCustPortraitIsNull() {
             addCriterion("CUST_PORTRAIT is null");
             return (Criteria) this;
@@ -315,6 +316,8 @@ public class CustomersExample {
             return (Criteria) this;
         }
 
+=======
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
         public Criteria andCustSexIsNull() {
             addCriterion("CUST_SEX is null");
             return (Criteria) this;
@@ -325,52 +328,102 @@ public class CustomersExample {
             return (Criteria) this;
         }
 
+<<<<<<< HEAD
         public Criteria andCustSexEqualTo(Integer value) {
+=======
+        public Criteria andCustSexEqualTo(String value) {
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
             addCriterion("CUST_SEX =", value, "custSex");
             return (Criteria) this;
         }
 
+<<<<<<< HEAD
         public Criteria andCustSexNotEqualTo(Integer value) {
+=======
+        public Criteria andCustSexNotEqualTo(String value) {
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
             addCriterion("CUST_SEX <>", value, "custSex");
             return (Criteria) this;
         }
 
+<<<<<<< HEAD
         public Criteria andCustSexGreaterThan(Integer value) {
+=======
+        public Criteria andCustSexGreaterThan(String value) {
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
             addCriterion("CUST_SEX >", value, "custSex");
             return (Criteria) this;
         }
 
+<<<<<<< HEAD
         public Criteria andCustSexGreaterThanOrEqualTo(Integer value) {
+=======
+        public Criteria andCustSexGreaterThanOrEqualTo(String value) {
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
             addCriterion("CUST_SEX >=", value, "custSex");
             return (Criteria) this;
         }
 
+<<<<<<< HEAD
         public Criteria andCustSexLessThan(Integer value) {
+=======
+        public Criteria andCustSexLessThan(String value) {
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
             addCriterion("CUST_SEX <", value, "custSex");
             return (Criteria) this;
         }
 
+<<<<<<< HEAD
         public Criteria andCustSexLessThanOrEqualTo(Integer value) {
+=======
+        public Criteria andCustSexLessThanOrEqualTo(String value) {
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
             addCriterion("CUST_SEX <=", value, "custSex");
             return (Criteria) this;
         }
 
+<<<<<<< HEAD
         public Criteria andCustSexIn(List<Integer> values) {
+=======
+        public Criteria andCustSexLike(String value) {
+            addCriterion("CUST_SEX like", value, "custSex");
+            return (Criteria) this;
+        }
+
+        public Criteria andCustSexNotLike(String value) {
+            addCriterion("CUST_SEX not like", value, "custSex");
+            return (Criteria) this;
+        }
+
+        public Criteria andCustSexIn(List<String> values) {
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
             addCriterion("CUST_SEX in", values, "custSex");
             return (Criteria) this;
         }
 
+<<<<<<< HEAD
         public Criteria andCustSexNotIn(List<Integer> values) {
+=======
+        public Criteria andCustSexNotIn(List<String> values) {
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
             addCriterion("CUST_SEX not in", values, "custSex");
             return (Criteria) this;
         }
 
+<<<<<<< HEAD
         public Criteria andCustSexBetween(Integer value1, Integer value2) {
+=======
+        public Criteria andCustSexBetween(String value1, String value2) {
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
             addCriterion("CUST_SEX between", value1, value2, "custSex");
             return (Criteria) this;
         }
 
+<<<<<<< HEAD
         public Criteria andCustSexNotBetween(Integer value1, Integer value2) {
+=======
+        public Criteria andCustSexNotBetween(String value1, String value2) {
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
             addCriterion("CUST_SEX not between", value1, value2, "custSex");
             return (Criteria) this;
         }

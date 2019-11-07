@@ -5,8 +5,11 @@ import java.util.Date;
 public class Serviceprovider {
     private String servProviderId;
 
+<<<<<<< HEAD
     private String servProviderImg;
 
+=======
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
     private String servProviderName;
 
     private String servProviderRegion;
@@ -35,6 +38,11 @@ public class Serviceprovider {
 
     private String servProviderBusinesslicense;
 
+<<<<<<< HEAD
+=======
+    private byte[] servProviderImg;
+
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
     public String getServProviderId() {
         return servProviderId;
     }
@@ -43,6 +51,7 @@ public class Serviceprovider {
         this.servProviderId = servProviderId == null ? null : servProviderId.trim();
     }
 
+<<<<<<< HEAD
     public String getServProviderImg() {
         return servProviderImg;
     }
@@ -51,6 +60,8 @@ public class Serviceprovider {
         this.servProviderImg = servProviderImg == null ? null : servProviderImg.trim();
     }
 
+=======
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
     public String getServProviderName() {
         return servProviderName;
     }
@@ -162,4 +173,15 @@ public class Serviceprovider {
     public void setServProviderBusinesslicense(String servProviderBusinesslicense) {
         this.servProviderBusinesslicense = servProviderBusinesslicense == null ? null : servProviderBusinesslicense.trim();
     }
+<<<<<<< HEAD
+=======
+
+    public byte[] getServProviderImg() {
+        return servProviderImg;
+    }
+
+    public void setServProviderImg(byte[] servProviderImg) {
+        this.servProviderImg = servProviderImg;
+    }
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
 }
