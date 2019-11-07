@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.datangedu.cn.dao.mapper.ServiceproductMapper">
+  <resultMap id="BaseResultMap" type="com.datangedu.cn.model.serviceproduct.Serviceproduct">
+    <result column="SERV_PRODUCTID" jdbcType="VARCHAR" property="servProductid" />
+    <result column="SERV_PROVIDERID" jdbcType="VARCHAR" property="servProviderid" />
+    <result column="SERV_PRODUCTIMG" jdbcType="VARCHAR" property="servProductimg" />
+    <result column="SERV_PRODUCTNAME" jdbcType="VARCHAR" property="servProductname" />
+    <result column="SERV_INSTRUCTIONS" jdbcType="VARCHAR" property="servInstructions" />
+    <result column="SERV_PRICE" jdbcType="INTEGER" property="servPrice" />
+    <result column="SERV_STARTTIME" jdbcType="TIMESTAMP" property="servStarttime" />
+    <result column="SERV_STATE" jdbcType="INTEGER" property="servState" />
+    <result column="SERV_BUMBER" jdbcType="INTEGER" property="servBumber" />
+    <result column="SERV_PROVIDERNAME" jdbcType="VARCHAR" property="servProvidername" />
+    <result column="SERV_RECOMMENDED" jdbcType="INTEGER" property="servRecommended" />
+    <result column="SERV_NECESSARY" jdbcType="INTEGER" property="servNecessary" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    SERV_PRODUCTID, SERV_PROVIDERID, SERV_PRODUCTIMG, SERV_PRODUCTNAME, SERV_INSTRUCTIONS, 
+    SERV_PRICE, SERV_STARTTIME, SERV_STATE, SERV_BUMBER, SERV_PROVIDERNAME, SERV_RECOMMENDED, 
+    SERV_NECESSARY
+  </sql>
+  <select id="selectByExample" parameterType="com.datangedu.cn.model.serviceproduct.ServiceproductExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from serviceproduct
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.datangedu.cn.model.serviceproduct.ServiceproductExample">
+    delete from serviceproduct
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.datangedu.cn.model.serviceproduct.Serviceproduct">
+    insert into serviceproduct (SERV_PRODUCTID, SERV_PROVIDERID, SERV_PRODUCTIMG, 
+      SERV_PRODUCTNAME, SERV_INSTRUCTIONS, SERV_PRICE, 
+      SERV_STARTTIME, SERV_STATE, SERV_BUMBER, 
+      SERV_PROVIDERNAME, SERV_RECOMMENDED, SERV_NECESSARY
+      )
+    values (#{servProductid,jdbcType=VARCHAR}, #{servProviderid,jdbcType=VARCHAR}, #{servProductimg,jdbcType=VARCHAR}, 
+      #{servProductname,jdbcType=VARCHAR}, #{servInstructions,jdbcType=VARCHAR}, #{servPrice,jdbcType=INTEGER}, 
+      #{servStarttime,jdbcType=TIMESTAMP}, #{servState,jdbcType=INTEGER}, #{servBumber,jdbcType=INTEGER}, 
+      #{servProvidername,jdbcType=VARCHAR}, #{servRecommended,jdbcType=INTEGER}, #{servNecessary,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.datangedu.cn.model.serviceproduct.Serviceproduct">
+    insert into serviceproduct
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="servProductid != null">
+        SERV_PRODUCTID,
+      </if>
+      <if test="servProviderid != null">
+        SERV_PROVIDERID,
+      </if>
+      <if test="servProductimg != null">
+        SERV_PRODUCTIMG,
+      </if>
+      <if test="servProductname != null">
+        SERV_PRODUCTNAME,
+      </if>
+      <if test="servInstructions != null">
+        SERV_INSTRUCTIONS,
+      </if>
+      <if test="servPrice != null">
+        SERV_PRICE,
+      </if>
+      <if test="servStarttime != null">
+        SERV_STARTTIME,
+      </if>
+      <if test="servState != null">
+        SERV_STATE,
+      </if>
+      <if test="servBumber != null">
+        SERV_BUMBER,
+      </if>
+      <if test="servProvidername != null">
+        SERV_PROVIDERNAME,
+      </if>
+      <if test="servRecommended != null">
+        SERV_RECOMMENDED,
+      </if>
+      <if test="servNecessary != null">
+        SERV_NECESSARY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="servProductid != null">
+        #{servProductid,jdbcType=VARCHAR},
+      </if>
+      <if test="servProviderid != null">
+        #{servProviderid,jdbcType=VARCHAR},
+      </if>
+      <if test="servProductimg != null">
+        #{servProductimg,jdbcType=VARCHAR},
+      </if>
+      <if test="servProductname != null">
+        #{servProductname,jdbcType=VARCHAR},
+      </if>
+      <if test="servInstructions != null">
+        #{servInstructions,jdbcType=VARCHAR},
+      </if>
+      <if test="servPrice != null">
+        #{servPrice,jdbcType=INTEGER},
+      </if>
+      <if test="servStarttime != null">
+        #{servStarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="servState != null">
+        #{servState,jdbcType=INTEGER},
+      </if>
+      <if test="servBumber != null">
+        #{servBumber,jdbcType=INTEGER},
+      </if>
+      <if test="servProvidername != null">
+        #{servProvidername,jdbcType=VARCHAR},
+      </if>
+      <if test="servRecommended != null">
+        #{servRecommended,jdbcType=INTEGER},
+      </if>
+      <if test="servNecessary != null">
+        #{servNecessary,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.datangedu.cn.model.serviceproduct.ServiceproductExample" resultType="java.lang.Long">
+    select count(*) from serviceproduct
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update serviceproduct
+    <set>
+      <if test="record.servProductid != null">
+        SERV_PRODUCTID = #{record.servProductid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.servProviderid != null">
+        SERV_PROVIDERID = #{record.servProviderid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.servProductimg != null">
+        SERV_PRODUCTIMG = #{record.servProductimg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.servProductname != null">
+        SERV_PRODUCTNAME = #{record.servProductname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.servInstructions != null">
+        SERV_INSTRUCTIONS = #{record.servInstructions,jdbcType=VARCHAR},
+      </if>
+      <if test="record.servPrice != null">
+        SERV_PRICE = #{record.servPrice,jdbcType=INTEGER},
+      </if>
+      <if test="record.servStarttime != null">
+        SERV_STARTTIME = #{record.servStarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.servState != null">
+        SERV_STATE = #{record.servState,jdbcType=INTEGER},
+      </if>
+      <if test="record.servBumber != null">
+        SERV_BUMBER = #{record.servBumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.servProvidername != null">
+        SERV_PROVIDERNAME = #{record.servProvidername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.servRecommended != null">
+        SERV_RECOMMENDED = #{record.servRecommended,jdbcType=INTEGER},
+      </if>
+      <if test="record.servNecessary != null">
+        SERV_NECESSARY = #{record.servNecessary,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update serviceproduct
+    set SERV_PRODUCTID = #{record.servProductid,jdbcType=VARCHAR},
+      SERV_PROVIDERID = #{record.servProviderid,jdbcType=VARCHAR},
+      SERV_PRODUCTIMG = #{record.servProductimg,jdbcType=VARCHAR},
+      SERV_PRODUCTNAME = #{record.servProductname,jdbcType=VARCHAR},
+      SERV_INSTRUCTIONS = #{record.servInstructions,jdbcType=VARCHAR},
+      SERV_PRICE = #{record.servPrice,jdbcType=INTEGER},
+      SERV_STARTTIME = #{record.servStarttime,jdbcType=TIMESTAMP},
+      SERV_STATE = #{record.servState,jdbcType=INTEGER},
+      SERV_BUMBER = #{record.servBumber,jdbcType=INTEGER},
+      SERV_PROVIDERNAME = #{record.servProvidername,jdbcType=VARCHAR},
+      SERV_RECOMMENDED = #{record.servRecommended,jdbcType=INTEGER},
+      SERV_NECESSARY = #{record.servNecessary,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
