@@ -51,6 +51,14 @@
 	<artifactId>druid</artifactId>
 	<version>1.1.19</version>
 </dependency>
+<<<<<<< HEAD
+=======
+<dependency>
+   <groupId>joda-time</groupId>
+   <artifactId>joda-time</artifactId>
+   <version>2.9.8</version>
+</dependency>
+>>>>>>> ae91f5c60013d33b5451853a0b57e38e3e7bc4d6
 <!-- 热部署 -->
 <dependency>
 <groupId>org.springframework.boot</groupId>
